@@ -328,8 +328,8 @@ The following sample file documents the `ruleset.xml` format and shows you the c
     Before version 3.3.0, array values are specified by using a string
     representation of the array.
 
-    NOTE: This syntax is deprecated and will be removed in
-    PHP_CodeSniffer version 4.0
+    NOTE: This syntax was deprecated in PHP_CodeSniffer 3.3.0 and
+    as of PHP_CodeSniffer version 4.0, this syntax is no longer supported.
  -->
  <rule ref="Generic.PHP.ForbiddenFunctions">
   <properties>
