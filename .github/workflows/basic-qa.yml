@@ -58,8 +58,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Spellcheck
-        id: spellcheck
-        continue-on-error: true
         uses: streetsidesoftware/cspell-action@v7
         with:
           # Define glob patterns to filter the files to be checked. Use a new line between patterns to define multiple patterns.
@@ -73,11 +71,6 @@ jobs:
           strict: true
           # Limit the files checked to the ones in the pull request or push.
           incremental_files_only: false
-
-      # Note: if less issues than expected were found, these numbers should be updated in the PR which fixes the issues!
-      - name: Fail the build when more spelling issues were found than expected
-        if: ${{ always() && ( steps.spellcheck.outputs.number_of_issues != 3 || steps.spellcheck.outputs.number_of_files_with_issues != 2 ) }}
-        run: exit 1
 
   shellcheck:
     name: 'ShellCheck'

@@ -14,7 +14,7 @@ Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will pr
 ```
 
 > [!NOTE]
-> The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
+> The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PSR12_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -39,37 +39,15 @@ $ phpcs /path/to/code/myfile.inc /path/to/code/my_dir
 After PHP_CodeSniffer has finished processing your files, you will get an error report. The report lists both errors and warnings for all files that violated the coding standard. The output looks like this:
 
 ```bash
-$ phpcs /path/to/code/myfile.php
-
-FILE: /path/to/code/myfile.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AND 1 WARNING(S) AFFECTING 5 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR   | Missing file doc comment
- 20 | ERROR   | PHP keywords must be lowercase; expected "false" but found
-    |         | "FALSE"
- 47 | ERROR   | Line not indented correctly; expected 4 spaces but found 1
- 47 | WARNING | Equals sign not aligned with surrounding assignments
- 51 | ERROR   | Missing function doc comment
- 88 | ERROR   | Line not indented correctly; expected 9 spaces but found 6
---------------------------------------------------------------------------------
+$ phpcs path/to/code/fileA.php
+{{COMMAND-OUTPUT "phpcs --parallel=1 --no-cache --no-colors --report-width=100 --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code/fileA.php"}}
 ```
 
 If you don't want warnings included in the output, specify the `-n` command line argument.
 
 ```bash
-$ phpcs -n /path/to/code/myfile.php
-
-FILE: /path/to/code/myfile.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AFFECTING 5 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Missing file doc comment
- 20 | ERROR | PHP keywords must be lowercase; expected "false" but found "FALSE"
- 47 | ERROR | Line not indented correctly; expected 4 spaces but found 1
- 51 | ERROR | Missing function doc comment
- 88 | ERROR | Line not indented correctly; expected 9 spaces but found 6
---------------------------------------------------------------------------------
+$ phpcs -n path/to/code/fileA.php
+{{COMMAND-OUTPUT "phpcs -n --parallel=1 --no-cache --no-colors --report-width=100 --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code/fileA.php"}}
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -81,33 +59,14 @@ By default, PHP_CodeSniffer will print a complete list of all errors and warning
 
 ```bash
 $ phpcs --report=summary /path/to/code
-
-PHP CODE SNIFFER REPORT SUMMARY
---------------------------------------------------------------------------------
-FILE                                                            ERRORS  WARNINGS
---------------------------------------------------------------------------------
-/path/to/code/myfile.inc                                        5       0
-/path/to/code/yourfile.inc                                      1       1
-/path/to/code/ourfile.inc                                       0       2
---------------------------------------------------------------------------------
-A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
---------------------------------------------------------------------------------
+{{COMMAND-OUTPUT "phpcs --parallel=1 --no-cache --no-colors --report-width=100 --report=summary --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code"}}
 ```
 
 As with the full report, you can suppress the printing of warnings with the `-n` command line argument.
 
 ```bash
 $ phpcs -n --report=summary /path/to/code
-
-PHP CODE SNIFFER REPORT SUMMARY
---------------------------------------------------------------------------------
-FILE                                                                      ERRORS
---------------------------------------------------------------------------------
-/path/to/code/myfile.inc                                                  5
-/path/to/code/yourfile.inc                                                1
---------------------------------------------------------------------------------
-A TOTAL OF 6 ERROR(S) WERE FOUND IN 2 FILE(S)
---------------------------------------------------------------------------------
+{{COMMAND-OUTPUT "phpcs -n --parallel=1 --no-cache --no-colors --report-width=100 --report=summary --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code"}}
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -145,18 +104,22 @@ Legend for the progress indicators:
 
 With verbose output enabled, PHP_CodeSniffer will print the file that it is checking, show you how many tokens and lines the file contains, and let you know how long it took to process. The output will look like this:
 
+<!--
+Regenerate the below output snippet by running the following command from the PHP_CodeSniffer project root directory:
+$ phpcs ./src/Standards/Generic/Sniffs/ --standard=PSR12 --no-cache --extensions=php --report=summary -v
+-->
 ```bash
 $ phpcs /path/to/project -v
 
-Registering sniffs in PEAR standard... DONE (28 sniffs registered)
-Creating file list... DONE (158 files in queue)
+Registering sniffs in the PSR12 standard... DONE (60 sniffs registered)
+Creating file list... DONE (79 files in queue)
 Changing into directory src/Standards/Generic/Sniffs/Arrays
-Processing ArrayIndentSniff.php [1409 tokens in 193 lines]... DONE in 39ms (4 errors, 20 warnings)
-Processing DisallowLongArraySyntaxSniff.php [405 tokens in 72 lines]... DONE in 11ms (0 errors, 4 warnings)
-Processing DisallowShortArraySyntaxSniff.php [331 tokens in 61 lines]... DONE in 9ms (4 errors, 3 warnings)
+Processing ArrayIndentSniff.php [1409 tokens in 193 lines]... DONE in 45ms (10 errors, 0 warnings)
+Processing DisallowLongArraySyntaxSniff.php [405 tokens in 72 lines]... DONE in 13ms (8 errors, 0 warnings)
+Processing DisallowShortArraySyntaxSniff.php [331 tokens in 61 lines]... DONE in 10ms (8 errors, 0 warnings)
 Changing into directory src/Standards/Generic/Sniffs/Classes
-Processing DuplicateClassNameSniff.php [800 tokens in 118 lines]... DONE in 24ms (0 errors, 0 warnings)
-Processing OpeningBraceSameLineSniff.php [936 tokens in 123 lines]... DONE in 26ms (4 errors, 12 warnings)
+Processing DuplicateClassNameSniff.php [800 tokens in 118 lines]... DONE in 25ms (13 errors, 1 warnings)
+Processing OpeningBraceSameLineSniff.php [936 tokens in 123 lines]... DONE in 29ms (12 errors, 1 warnings)
 ...
 ```
 
@@ -167,10 +130,10 @@ Processing OpeningBraceSameLineSniff.php [936 tokens in 123 lines]... DONE in 26
 
 PHP_CodeSniffer can have multiple coding standards installed to allow a single installation to be used with multiple projects. When checking PHP code, PHP_CodeSniffer can be told which coding standard to use. This is done using the `--standard` command line argument.
 
-The example below checks the `myfile.inc` file for violations against the _PEAR_ coding standard (installed by default).
+The example below checks the `myfile.inc` file for violations against the _PSR12_ coding standard (installed by default).
 
 ```bash
-$ phpcs --standard=PEAR /path/to/code/myfile.inc
+$ phpcs --standard=PSR12 /path/to/code/myfile.inc
 ```
 
 You can also tell PHP_CodeSniffer to use an external standard by specifying the full path to the standard's root directory on the command line. An external standard is one that is stored outside of PHP_CodeSniffer's `Standards` directory.
@@ -182,7 +145,7 @@ $ phpcs --standard=/path/to/MyStandard /path/to/code/myfile.inc
 Multiple coding standards can be checked at the same time by passing a list of comma separated standards on the command line. A mix of external and installed coding standards can be passed if required.
 
 ```bash
-$ phpcs --standard=PEAR,Squiz,/path/to/MyStandard /path/to/code/myfile.inc
+$ phpcs --standard=PSR12,Squiz,/path/to/MyStandard /path/to/code/myfile.inc
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>

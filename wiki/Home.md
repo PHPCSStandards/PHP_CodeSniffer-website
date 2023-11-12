@@ -6,49 +6,21 @@ PHP_CodeSniffer is an essential development tool that ensures your code remains 
 
 A coding standard in PHP_CodeSniffer is a collection of sniff files. Each sniff file checks one part of the coding standard only. Each sniff can yield multiple error codes, a different one for each aspect of the code which was checked and found non-compliant.
 
-Multiple coding standards can be used within PHP_CodeSniffer so that the one installation can be used across multiple projects. The default coding standard used by PHP_CodeSniffer is the PEAR coding standard.
+Multiple coding standards can be used within PHP_CodeSniffer so that the one installation can be used across multiple projects.  
+As of PHP_CodeSniffer 4.0.0, the default coding standard used by PHP_CodeSniffer is the PSR12 coding standard (previously, this was the PEAR standard).
 
 ## Example
 
-To check a file against the PEAR coding standard, simply specify the file's location.
+To check a file against the PSR12 coding standard, simply specify the file's location.
 
 ```bash
-$ phpcs /path/to/code/myfile.php
-
-FILE: /path/to/code/myfile.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Missing file doc comment
- 20 | ERROR | PHP keywords must be lowercase; expected "false" but found "FALSE"
- 47 | ERROR | Line not indented correctly; expected 4 spaces but found 1
- 51 | ERROR | Missing function doc comment
- 88 | ERROR | Line not indented correctly; expected 9 spaces but found 6
---------------------------------------------------------------------------------
+$ phpcs path/to/code/fileA.php
+{{COMMAND-OUTPUT "phpcs --parallel=1 --no-cache --no-colors --report-width=100 --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code/fileA.php"}}
 ```
 
 Or, if you wish to check an entire directory, you can specify the directory location instead of a file.
 
 ```bash
 $ phpcs /path/to/code
-
-FILE: /path/to/code/myfile.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AFFECTING 5 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Missing file doc comment
- 20 | ERROR | PHP keywords must be lowercase; expected "false" but found "FALSE"
- 47 | ERROR | Line not indented correctly; expected 4 spaces but found 1
- 51 | ERROR | Missing function doc comment
- 88 | ERROR | Line not indented correctly; expected 9 spaces but found 6
---------------------------------------------------------------------------------
-
-FILE: /path/to/code/yourfile.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 21 | ERROR   | PHP keywords must be lowercase; expected "false" but found
-    |         | "FALSE"
- 21 | WARNING | Equals sign not aligned with surrounding assignments
---------------------------------------------------------------------------------
+{{COMMAND-OUTPUT "phpcs --parallel=1 --no-cache --no-colors --report-width=100 --basepath=build/wiki-code-samples build/wiki-code-samples/path/to/code"}}
 ```

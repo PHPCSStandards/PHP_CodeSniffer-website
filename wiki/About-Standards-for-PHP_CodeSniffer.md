@@ -50,7 +50,7 @@ You may also find the [Customisable Sniff Properties](https://github.com/PHPCSSt
 3. If no (project) ruleset file is found, PHP_CodeSniffer will check if a default standard has been set via `--config-set default_standard [Name]`.
     If so, PHP_CodeSniffer will use that standard.
     :warning: Setting the default standard is a user-specific setting, so should not be relied upon.
-4. If no system-default standard was set, PHP_CodeSniffer will apply the PEAR standard.
+4. If no system-default standard was set, PHP_CodeSniffer will apply the PSR12 standard.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
