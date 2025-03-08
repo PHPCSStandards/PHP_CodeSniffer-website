@@ -301,7 +301,7 @@ $ phpcs --config-set jsl_path /path/to/jsl
 
 ## Zend Coding Standard Configuration Options
 
-### Setting the path to the Zend Code Analyzer
+### Setting the path to the Zend Code Analyzer (PHP_CodeSniffer < 4.0.0)
 
 The `Zend.Debug.CodeAnalyzer` sniff will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
 
