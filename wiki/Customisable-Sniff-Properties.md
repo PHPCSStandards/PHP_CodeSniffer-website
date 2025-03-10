@@ -248,13 +248,13 @@ The difference in alignment between two adjacent assignments is occasionally qui
 
 If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
 
-```xml
-<rule ref="Generic.Formatting.MultipleStatementAlignment">
-    <properties>
-        <property name="error" value="true" />
-    </properties>
-</rule>
-```
+> [!WARNING]
+> The `error` property should no longer be used. Set `<type>` instead.
+> ```xml
+> <rule ref="Generic.Formatting.MultipleStatementAlignment">
+>     <type>error</type>
+> </rule>
+> ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -542,13 +542,13 @@ This sniff checks that two strings using the same quoting style are not concaten
 
 If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
 
-```xml
-<rule ref="Generic.Strings.UnnecessaryStringConcat">
-    <properties>
-        <property name="error" value="false" />
-    </properties>
-</rule>
-```
+> [!WARNING]
+> The `error` property should no longer be used. Set `<type>` instead.
+> ```xml
+> <rule ref="Generic.Strings.UnnecessaryStringConcat">
+>     <type>warning</type>
+> </rule>
+> ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
