@@ -280,9 +280,9 @@ CI scripts or git pre-commit hooks may be checking explicitly for specific exit 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-### [Upcoming] Branch rename in the PHP_CodeSniffer repository
+### Branch rename in the PHP_CodeSniffer repo
 
-Just before the final 4.0.0 release, the PHP_CodeSniffer `master` branch will be renamed to `3.x` and the default branch will change to `4.x`.
+The PHP_CodeSniffer `master` branch has been renamed to `3.x` and the default branch is now the `4.x` branch.
 
 #### Upgrading
 
@@ -308,7 +308,7 @@ If you reference a development version of PHP_CodeSniffer in your `composer.json
 What to update these to, depends on your use-case.
 
 * If you want to use the latest development version of PHP_CodeSniffer, use the `4.x` branch. For Composer, references to the branch will need to look like this: `4.x-dev`.
-* If you want the last development version of the `3.x` branch - previously `master`, use `3.x`.  For Composer, references to the branch will need to look like this: `3.x-dev`.
+* If you want the last development version of the `3.x` branch - previously `master` -, use `3.x`.  For Composer, references to the branch will need to look like this: `3.x-dev`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
