@@ -1,0 +1,80 @@
+name: CS
+
+on:
+  # Run on all pushes and on all pull requests.
+  push:
+  pull_request:
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Do NOT cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  yamllint:
+    name: 'Lint Yaml'
+    uses: PHPCSStandards/.github/.github/workflows/reusable-yamllint.yml@main
+    with:
+      strict: true
+
+  markdownlint:
+    name: 'Lint Markdown'
+    uses: PHPCSStandards/.github/.github/workflows/reusable-markdownlint.yml@main
+
+  linkcheck:
+    name: "Check links"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --cache --max-cache-age 1w --verbose "./**/*.md"
+          format: markdown
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail: true
+
+  spellcheck:
+    name: Spellcheck
+    # Config file: .cspell.yml
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Spellcheck
+        id: spellcheck
+        continue-on-error: true
+        uses: streetsidesoftware/cspell-action@v7
+        with:
+          # Define glob patterns to filter the files to be checked. Use a new line between patterns to define multiple patterns.
+          files: '**/*.md'
+          root: '.'
+          suggestions: true
+          # Notification level for annotations. Allowed values are: warning, error, none
+          inline: warning
+          treat_flagged_words_as_errors: true
+          # Determines if the action should be failed if any spelling issues are found.
+          strict: true
+          # Limit the files checked to the ones in the pull request or push.
+          incremental_files_only: false
+
+      # Note: if less issues than expected were found, these numbers should be updated in the PR which fixes the issues!
+      - name: Fail the build when more spelling issues were found than expected
+        if: ${{ always() && ( steps.spellcheck.outputs.number_of_issues != 3 || steps.spellcheck.outputs.number_of_files_with_issues != 2 ) }}
+        run: exit 1
