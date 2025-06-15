@@ -259,10 +259,10 @@ $ phpcs --encoding=windows-1251 /path/to/code
 
 ## Using a Bootstrap File
 
-PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
+PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such tasks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are separated by commas.
 
 ```bash
-$ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
+$ phpcs --bootstrap=/path/to/bootstrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -351,13 +351,13 @@ Array
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-## Printing Verbose Tokeniser Output
+## Printing Verbose Tokenizer Output
 
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
 
-PHP_CodeSniffer contains multiple verbosity levels. Level 2 (indicated by the command line argument `-vv`) will print all verbosity information for level 1 (file specific token and line counts with running times) as well as verbose tokeniser output.
+PHP_CodeSniffer contains multiple verbosity levels. Level 2 (indicated by the command line argument `-vv`) will print all verbosity information for level 1 (file specific token and line counts with running times) as well as verbose tokenizer output.
 
-The output of the PHP_CodeSniffer tokeniser shows the step-by-step creation of the scope map and the level map.
+The output of the PHP_CodeSniffer tokenizer shows the step-by-step creation of the scope map and the level map.
 
 ### The Scope Map
 
@@ -456,7 +456,7 @@ The level map is most commonly used to determine indentation rules (e.g., a toke
 
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
 
-PHP_CodeSniffer contains multiple verbosity levels. Level 3 (indicated by the command line argument `-vvv`) will print all verbosity information for level 1 (file specific token and line counts with running times), level 2 (tokeniser output) as well as token processing output with sniff running times.
+PHP_CodeSniffer contains multiple verbosity levels. Level 3 (indicated by the command line argument `-vvv`) will print all verbosity information for level 1 (file specific token and line counts with running times), level 2 (tokenizer output) as well as token processing output with sniff running times.
 
 The token processing output is best explained with an example. For the following file:
 

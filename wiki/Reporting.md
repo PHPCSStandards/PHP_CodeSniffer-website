@@ -333,14 +333,14 @@ patching file /path/to/code/file.php
 ```
 
 > [!NOTE]
-> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
+> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` sub-directory to the Windows system `PATH`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ## Printing an Emacs Report
 
-PHP_CodeSniffer can output a report in a format the compiler built into the GNU Emacs text editor can understand. This lets you use the built-in complier to run PHP_CodeSniffer on a file you are editing and navigate between errors and warnings within the file. To print an Emacs report, use the `--report=emacs` command line argument. The output will look like this:
+PHP_CodeSniffer can output a report in a format the compiler built into the GNU Emacs text editor can understand. This lets you use the built-in compiler to run PHP_CodeSniffer on a file you are editing and navigate between errors and warnings within the file. To print an Emacs report, use the `--report=emacs` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=emacs /path/to/code
@@ -368,7 +368,7 @@ Now you can use the compile command and associated shortcuts to move between err
 
 ## Printing a Git Blame Report
 
-PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
+PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git repository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=gitblame /path/to/code
@@ -437,7 +437,7 @@ A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
 
 ## Printing a JSON Report
 
-PHP_CodeSniffer can output an JSON report to allow you to parse the output and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
+PHP_CodeSniffer can output a JSON report to allow you to parse the output and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=json /path/to/code
@@ -556,7 +556,7 @@ PHP_CodeSniffer can output a sniff performance report showing you which sniffs i
 When the `--colors` option is enabled, sniffs which take more than twice the average run time per sniff will be displayed in orange and sniffs with a cumulative listener run time of more than three times the average run time per sniff will display in red.
 
 > [!NOTE]
-> The Performance report will only be useful when run without using the cache as otherwise the cache functionality will interfer with accurately measuring the runtime of sniffs.
+> The Performance report will only be useful when run without using the cache as otherwise the cache functionality will interfere with accurately measuring the runtime of sniffs.
 > So make sure to always use the `--no-cache` feature when running Performance reports.
 
 > [!NOTE]

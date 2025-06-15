@@ -133,7 +133,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     directory because it does not exist inside the PHP_CodeSniffer
     install directory.
  -->
- <rule ref="/home/username/standards/mystandard"/>
+ <rule ref="/home/username/standards/MyStandard"/>
 
  <!--
     Include everything in another ruleset.xml file. This is
@@ -148,7 +148,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     Make sure the reference starts with ./ or ../ so PHP_CodeSniffer
     knows it is a relative path.
  -->
- <rule ref="./standards/mystandard"/>
+ <rule ref="./standards/MyStandard"/>
  <rule ref="../username/custom.xml"/>
 
  <!--
