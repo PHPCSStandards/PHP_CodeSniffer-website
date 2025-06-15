@@ -9,7 +9,7 @@ PHP_CodeSniffer version 4.0.0 contains a number of core changes and breaks backw
 > [!NOTE]
 > A certain level of technical understanding of PHP_CodeSniffer is presumed for readers of this upgrade guide.
 
-There is a separate [[Upgrade Guide for Ruleset Maintainers and End-Users|Version 4.0 User Upgrade Guide]] available.
+There is a separate [Upgrade Guide for Ruleset Maintainers and End-Users](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Version-4.0-User-Upgrade-Guide) available.
 
 
 ## Table of contents
@@ -45,7 +45,7 @@ The vast majority of the below upgrade tasks will need to be executed in both ca
 
 ## Upgrading the ruleset.xml file
 
-See the [[Upgrade Guide for Ruleset Maintainers and End-Users|Version 4.0 User Upgrade Guide]] for everything you need to know about upgrading the `ruleset.xml` file.
+See the [Upgrade Guide for Ruleset Maintainers and End-Users](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Version-4.0-User-Upgrade-Guide) for everything you need to know about upgrading the `ruleset.xml` file.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 

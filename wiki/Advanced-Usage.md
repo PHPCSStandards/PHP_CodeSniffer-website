@@ -224,7 +224,7 @@ $ phpcs --tab-width=4 /path/to/code
 
 > [!NOTE]
 > The `Generic.WhiteSpace.DisallowTabIndent` and `Generic.WhiteSpace.DisallowSpaceIndent` sniffs, which enforce space or tab indentation respectively, will still generate errors, even if you have replaced tabs with spaces using the `--tab-width` setting. These sniffs looks at the unmodified version of the code to check line indentation.  
-> When using a [[custom ruleset.xml file|Annotated ruleset]], only enable one of these two sniffs, never both.
+> When using a [custom `ruleset.xml` file](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset), only enable one of these two sniffs, never both.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -258,7 +258,7 @@ If you run PHP_CodeSniffer without specifying a coding standard, PHP_CodeSniffer
 > [!IMPORTANT]
 > If multiple default configuration files are found, PHP_CodeSniffer will select one using the following order: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`
 
-The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
+The `phpcs.xml` file has exactly the same format as a normal [`ruleset.xml` file](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset), so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
 
 > [!NOTE]
 > An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml.dist](https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xml.dist)
@@ -285,7 +285,7 @@ $ phpcs -d memory_limit=32M -d include_path=.:/php/includes /path/to/code
 
 ## Setting Configuration Options
 
-PHP_CodeSniffer has some configuration options that can be set. Individual coding standards may also require configuration options to be set before functionality can be used. [[View a full list of configuration options|Configuration Options]].
+PHP_CodeSniffer has some configuration options that can be set. Individual coding standards may also require configuration options to be set before functionality can be used. [View a full list of configuration options](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options).
 
 To set a configuration option, use the `--config-set` command line argument.
 
@@ -300,14 +300,14 @@ $ phpcs --runtime-set <option> <value> /path/to/code
 ```
 
 > [!NOTE]
-> Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
+> Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [Configuration Options](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options) list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ## Deleting Configuration Options
 
-PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].
+PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [View a full list of configuration options](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options).
 
 To delete a configuration option, use the `--config-delete` command line argument.
 
