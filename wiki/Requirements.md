@@ -1,4 +1,4 @@
-PHP_CodeSniffer requires PHP version 5.4.0 or greater, although individual sniffs may have additional requirements such as external applications and scripts. See the [[Configuration Options]] manual page for a list of these requirements.
+PHP_CodeSniffer requires PHP version 5.4.0 or greater, although individual sniffs may have additional requirements such as external applications and scripts. See the [Configuration Options](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options) manual page for a list of these requirements.
 
 Additionally, PHP_CodeSniffer requires the following PHP extensions to be enabled:
 - Tokenizer: used by the core tokenizer to process PHP files
