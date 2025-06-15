@@ -24,7 +24,7 @@ There is a separate [Upgrade Guide for Ruleset Maintainers and End-Users](https:
 It is highly recommended to upgrade external standards and integrations as soon as you are able.
 
 Once PHP_CodeSniffer 4.0 has been released, the PHP_CodeSniffer 3.x branch will no longer receive updates, with the exception of security fixes and runtime compatibility fixes for new PHP versions.
-This "limited support" will last a maximum of one year from the date of the PHP_Codesniffer 4.0.0 release.
+This "limited support" will last a maximum of one year from the date of the PHP_CodeSniffer 4.0.0 release.
 
 > [!IMPORTANT]
 > This also means that support for new PHP syntaxes will only land in PHP_CodeSniffer 4.x and will **NOT** be backported to the 3.x branch.
@@ -36,9 +36,9 @@ There are basically two upgrade strategies:
 1. Drop support for PHP_CodeSniffer 3.x completely and adopt support for PHP_CodeSniffer 4.x.
 2. Make your package cross-version compatible with both PHP_CodeSniffer 3.x as well as 4.x.
 
-Which strategy is best suited for your project will depend on your userbase.
+Which strategy is best suited for your project will depend on your user-base.
 
-If your userbase is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefitting from updates to your package if they can't upgrade to PHPCS 4.x yet.
+If your user-base is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefiting from updates to your package if they can't upgrade to PHPCS 4.x yet.
 
 The vast majority of the below upgrade tasks will need to be executed in both cases, but there are some upgrade tasks which can only be executed once support for PHP_CodeSniffer 3.x is being dropped.
 
@@ -122,10 +122,10 @@ Type casting for sniff property values set from within a ruleset has been made m
 
 Search for sniff which have `public` properties which can be changed from within a ruleset.
 
-* If the sniff has work-arounds in place to handle non-lowercase string `'true'` or `'false'` values for boolean properties, those work-arounds can be removed.
-* If the sniff has work-arounds in place to handle (any case) string `'null'` values, those work-arounds can be removed.
+* If the sniff has workarounds in place to handle non-lowercase string `'true'` or `'false'` values for boolean properties, those workarounds can be removed.
+* If the sniff has workarounds in place to handle (any case) string `'null'` values, those workarounds can be removed.
 * If the sniff explicitly expects only string values for array elements, the sniff may need to be updated.
-* If the sniff has work-arounds in place to handle the type casting of `true`, `false` and/or `null` for array elements, those work-arounds can be removed.
+* If the sniff has workarounds in place to handle the type casting of `true`, `false` and/or `null` for array elements, those workarounds can be removed.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -200,8 +200,8 @@ Typically, this may impact projects which call `new Config` consecutive times pr
 
 ##### Upgrading
 
-Typical work-arounds for the old behaviour will use `Reflection` to reset the `Config::$overriddenDefaults` property between instantiations.
-These type of work-arounds can now be removed.
+Typical workarounds for the old behaviour will use `Reflection` to reset the `Config::$overriddenDefaults` property between instantiations.
+These type of workarounds can now be removed.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -276,7 +276,7 @@ The following tokens have been removed:
 
 If these tokens are used in PHP-only sniffs, they can be safely removed.
 If these tokens are used in JS/CSS only sniffs, as mentioned in ["Support for JS/CSS has been removed"](#support-for-jscss-has-been-removed): deprecate or remove the sniff.
-If these tokens are used in mixed sniffs, which also scan PHP files, remove the CSS/JS specific code or, for cross-version compatibility, check for the existance of the tokens before using them.
+If these tokens are used in mixed sniffs, which also scan PHP files, remove the CSS/JS specific code or, for cross-version compatibility, check for the existence of the tokens before using them.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -338,7 +338,7 @@ This re-tokenization has now been removed.
 
 ##### Upgrading
 
-* Search your sniffs/code for `T_INSTANCEOF` and `'static'` to find any potential work-arounds in place for the old tokenization. Those can now be removed.
+* Search your sniffs/code for `T_INSTANCEOF` and `'static'` to find any potential workarounds in place for the old tokenization. Those can now be removed.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -535,9 +535,9 @@ The Ruleset class now respects sniff selection via `--sniffs=...`, even when in 
 
 **Upgrading**
 
-If your own test framework contained work-arounds to get round the previous restriction, it should now be safe to remove those work-arounds and to use the `--sniffs=...` argument when initiating the `Config` class.
+If your own test framework contained workarounds to get round the previous restriction, it should now be safe to remove those workarounds and to use the `--sniffs=...` argument when initiating the `Config` class.
 
-Typically, these type of work-around can be found by searching for calls to the `Ruleset::registerSniffs()` method.
+Typically, these type of workarounds can be found by searching for calls to the `Ruleset::registerSniffs()` method.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
