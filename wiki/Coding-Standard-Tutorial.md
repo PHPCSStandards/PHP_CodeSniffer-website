@@ -44,7 +44,7 @@ The content of the `ruleset.xml` file should, at a minimum, be the following:
 ```
 
 > [!NOTE]
-> The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the `ruleset.xml` provides, see the [Annotated ruleset](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset).
+> The `ruleset.xml` can be left quite small, as it is in this example coding standard. For information about the other features that the `ruleset.xml` provides, see the [Annotated ruleset](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset).
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
