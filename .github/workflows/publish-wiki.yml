@@ -84,6 +84,10 @@ jobs:
         shell: bash
         run: cp -v -a wiki _wiki
 
+      - name: Find / replace output example placeholders
+        shell: bash
+        run: build/wiki-command-replacer.sh
+
       - name: Update tables of contents
         run: doctoc ./_wiki/ --github --maxlevel 4 --update-only
 
