@@ -78,3 +78,21 @@ jobs:
       - name: Fail the build when more spelling issues were found than expected
         if: ${{ always() && ( steps.spellcheck.outputs.number_of_issues != 3 || steps.spellcheck.outputs.number_of_files_with_issues != 2 ) }}
         run: exit 1
+
+  shellcheck:
+    name: 'ShellCheck'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up problem matcher
+        uses: lumaxis/shellcheck-problem-matchers@v2
+        with:
+          format: gcc
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          format: gcc
