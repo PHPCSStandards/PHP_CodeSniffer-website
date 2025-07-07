@@ -1,9 +1,3 @@
-> [!CAUTION]
-> PHP_CodeSniffer 4.0.0 is currently in the pre-release phase. The information in this upgrade guide is subject to change until PHP_CodeSniffer 4.0.0 has been released.
->
-> If you find errors in this upgrade guide or would like to contribute improvements based on tests you've run with a PHP_CodeSniffer 4.0 pre-release, please [open an issue](https://github.com/PHPCSStandards/PHP_CodeSniffer/issues).
-
-
 PHP_CodeSniffer version 4.0.0 contains a number of core changes and breaks backwards compatibility in select situations. The aim of this guide is to help **ruleset maintainers and end-users** to upgrade from PHP_CodeSniffer version 3.x to version 4.x.
 
 There is a separate [Upgrade Guide for Sniff Developers and Integrators](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Version-4.0-Developer-Upgrade-Guide) available.
