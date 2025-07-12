@@ -2,6 +2,13 @@ In this tutorial, we will create a new coding standard with a single sniff. Our 
 
 Sniffs need to follow [strict directory layout and naming conventions](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/About-Standards-for-PHP_CodeSniffer#naming-conventions).
 
+## Table of contents
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+***
+
 ## Creating the Coding Standard Directory
 
 All sniffs in PHP_CodeSniffer must belong to a coding standard. A coding standard is a directory with a specific sub-directory structure and a `ruleset.xml` file, so creating a standard is straight-forward.
@@ -39,6 +46,9 @@ The content of the `ruleset.xml` file should, at a minimum, be the following:
 > [!NOTE]
 > The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the `ruleset.xml` provides, see the [[Annotated ruleset]].
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Creating the Sniff
 
 A sniff requires a single PHP file that must be placed into a sub-directory to categorise the type of check it performs. Its name should clearly describe the standard that we are enforcing and must end with `Sniff.php`. For our sniff, we will name the PHP file `DisallowHashCommentsSniff.php` and place it into a `Commenting` sub-directory to categorise this sniff as relating to commenting. Run the following commands to create the category and the sniff:
@@ -54,11 +64,17 @@ $ touch Commenting/DisallowHashCommentsSniff.php
 
 Each sniff must implement the `PHP_CodeSniffer\Sniffs\Sniff` interface so that PHP_CodeSniffer knows that it should instantiate the sniff once it's invoked. The interface defines two methods that must be implemented; `register` and `process`.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## The `register` and `process` Methods
 
 The `register` method allows a sniff to subscribe to one or more token types that it wants to process. Once PHP_CodeSniffer encounters one of those tokens, it calls the `process` method with the `PHP_CodeSniffer\Files\File` object (a representation of the current file being checked) and the position in the stack where the token was found.
 
 For our sniff, we are interested in single line comments. The `token_get_all` method that PHP_CodeSniffer uses to acquire the tokens within a file distinguishes doc comments and normal comments as two separate token types. Therefore, we don't have to worry about doc comments interfering with our test. The `register` method only needs to return one token type, `T_COMMENT`.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## The Token Stack
 
@@ -67,10 +83,16 @@ A sniff can gather more information about a token by acquiring the token stack w
 > [!NOTE]
 > Depending on the token, the token array may contain various additional indexes with further information on a token.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Reporting Errors
 
 Once an error is detected, a sniff should indicate that an error has occurred by calling the `addError` method on the `PHP_CodeSniffer\Files\File` object, passing in an appropriate error message as the first argument, the position in the stack where the error was detected as the second, a code to uniquely identify the error within this sniff and an array of data used inside the error message.
 Alternatively, if the violation is considered not as critical as an error, the `addWarning` method can be used.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## DisallowHashCommentsSniff.php
 
@@ -135,6 +157,8 @@ public $supportedTokenizers = [
 ];
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Results
 
@@ -173,3 +197,5 @@ FOUND 3 ERROR(S) AFFECTING 3 LINE(S)
  13 | ERROR | Hash comments are prohibited; found # Error.
 --------------------------------------------------------------------------------
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
