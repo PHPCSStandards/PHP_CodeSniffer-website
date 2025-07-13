@@ -341,11 +341,12 @@ To view the currently set configuration options, use the `--config-show` command
 
 ```bash
 $ phpcs --config-show
-Array
-(
-    [default_standard] => PEAR
-    [zend_ca_path] => /path/to/ZendCodeAnalyzer
-)
+
+Using config file: path/to/PHP_CodeSniffer/CodeSniffer.conf
+
+colors:           1
+default_standard: PEAR
+report_width:     150
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
