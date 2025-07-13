@@ -112,28 +112,53 @@ Miscellaneous Options:
 
 When using the PHPCBF command, you do not need to specify a report type. PHPCBF will automatically make changes to your source files:
 
+<!--
+Regenerate the below output snippet by running the following command from the PHP_CodeSniffer project root directory:
+$ phpcbf ./src/Runner.php ./src/Config.php --standard=PSR12 --basepath=./ --report-width=100
+WARNING: DO NOT COMMIT THE RESULT!
+-->
 ```bash
 $ phpcbf /path/to/code
-Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
-    => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
-Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
-    => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
-Patched 2 files
-Time: 2.55 secs, Memory: 25.00Mb
+
+PHPCBF RESULT SUMMARY
+----------------------------------------------------------------------
+FILE                                                  FIXED  REMAINING
+----------------------------------------------------------------------
+src/Runner.php                                        95     16
+src/Config.php                                        889    38
+----------------------------------------------------------------------
+A TOTAL OF 984 ERRORS WERE FIXED IN 2 FILES
+----------------------------------------------------------------------
 ```
 
 If you do not want to overwrite existing files, you can specify the `--suffix` command line argument and provide a filename suffix to use for new files. A fixed copy of each file will be created and stored in the same directory as the original file. If a file already exists with the new name, it will be overwritten.
 
+<!--
+Regenerate the below output snippet by running the following command from the PHP_CodeSniffer project root directory:
+$ phpcbf -v ./src/Runner.php ./src/Config.php --standard=PSR12 --suffix=.fixed --basepath=./ --report-width=100
+WARNING: DO NOT COMMIT THE RESULT!
+-->
 ```bash
-$ phpcbf /path/to/code --suffix=.fixed
-Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
-    => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
-    => Fixed file written to init.php.fixed
-Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
-    => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
-    => Fixed file written to config.php.fixed
-Fixed 2 files
-Time: 2.55 secs, Memory: 25.00Mb
+$ phpcbf -v /path/to/code --suffix=.fixed
+
+Creating file list... DONE (2 files in queue)
+Changing into directory src
+Processing Runner.php [6415 tokens in 907 lines]... DONE in 193ms (91 fixable errors, 4 fixable warnings)
+    => Fixing file: 0/95 violations remaining [made 4 passes]... DONE in 771ms
+    => Fixed file written to Runner.php.fixed
+Processing Config.php [13891 tokens in 1792 lines]... DONE in 444ms (865 fixable errors, 24 fixable warnings)
+    => Fixing file: 0/889 violations remaining [made 4 passes]... DONE in 1.72 secs
+    => Fixed file written to Config.php.fixed
+
+PHPCBF RESULT SUMMARY
+----------------------------------------------------------------------
+FILE                                                  FIXED  REMAINING
+----------------------------------------------------------------------
+src/Runner.php                                        95     16
+src/Config.php                                        889    38
+----------------------------------------------------------------------
+A TOTAL OF 984 ERRORS WERE FIXED IN 2 FILES
+----------------------------------------------------------------------
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
