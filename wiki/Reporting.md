@@ -377,19 +377,21 @@ PHP_CodeSniffer can make use of the `git blame` command to try and determine who
 $ phpcs --report=gitblame /path/to/code
 
 PHP CODE SNIFFER GIT BLAME SUMMARY
---------------------------------------------------------------------------------
-AUTHOR                                                              COUNT (%)
---------------------------------------------------------------------------------
-jsmith                                                              51 (40.8)
-jblogs                                                              44 (30)
-pdeveloper                                                          43 (10.33)
-jscript                                                             27 (19.84)
---------------------------------------------------------------------------------
-A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 4 AUTHOR(S)
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
+AUTHOR                                    (Author %) (Overall %) COUNT
+----------------------------------------------------------------------
+jsmith                                        (2.25)     (61.11)    33
+jblogs                                        (2.48)     (29.63)    16
+pdeveloper                                    (0.78)      (5.56)     3
+jscript                                       (1.39)      (1.85)     1
+toogood                                       (3.33)      (1.85)     1
+----------------------------------------------------------------------
+A TOTAL OF 54 SNIFF VIOLATIONS WERE COMMITTED BY 5 AUTHORS
+----------------------------------------------------------------------
 ```
 
-Each author is listed with the number of violations they committed and the percentage of error lines to clean lines. The example report above shows that the developer `pdeveloper` has 43 violations but they only make up 10% of all code they have committed, while `jblogs` has 44 violations but they make up 30% of all their committed code. So these developers have about the same number of total violations, but `pdeveloper` seems to be doing a better job of conforming to the coding standard.
+Each author is listed with the number of violations they committed and the percentage of error lines to clean lines. The example report above shows that the developer `jscript` has 1 violation but they only make up 1.39% of all code they have committed, while `toogood` has 1 violation but they make up 3.33% of all their committed code. So these developers have about the same number of total violations, but `jscript` seems to be doing a better job of conforming to the coding standard.
+
 
 To show a breakdown of the types of violations each author is committing, use the `-s` command line argument.
 
@@ -398,18 +400,23 @@ $ phpcs -s --report=gitblame /path/to/code
 
 PHP CODE SNIFFER GIT BLAME SUMMARY
 --------------------------------------------------------------------------------
-AUTHOR   SOURCE                                                     COUNT (%)
+AUTHOR   SOURCE                                     (Author %) (Overall %) COUNT
 --------------------------------------------------------------------------------
-jsmith                                                              51 (40.8)
-         Squiz.Files.LineLength                                     47
-         PEAR.Functions.FunctionCallSignature                       4
-jblogs                                                              44 (30)
-         Squiz.Files.LineLength                                     40
-         Generic.CodeAnalysis.UnusedFunctionParameter               2
-         Squiz.CodeAnalysis.EmptyStatement                          1
-         Squiz.Formatting.MultipleStatementAlignment                1
+jsmith                                                  (2.25)     (61.11)    33
+         Generic.Files.LineLength.TooLong                                     22
+         PEAR.Functions.FunctionCallSignature                                  1
+jblogs                                                  (2.48)     (29.63)    16
+         Squiz.Formatting.MultipleStatementAlignment                          10
+         PSR12.Classes.ClosingBrace.StatementAfter                             4
+         Generic.Files.LineLength.TooLong                                      2
+pdeveloper                                              (0.78)      (5.56)     3
+         Generic.CodeAnalysis.UnusedFunctionParameter                          3
+jscript                                                 (1.39)      (1.85)     1
+         Squiz.CodeAnalysis.EmptyStatement                                     1
+toogood                                                 (3.33)      (1.85)     1
+         PSR12.Classes.ClosingBrace.StatementAfter                             1
 --------------------------------------------------------------------------------
-A TOTAL OF 95 SNIFF VIOLATION(S) WERE COMMITTED BY 2 AUTHOR(S)
+A TOTAL OF 54 SNIFF VIOLATIONS WERE COMMITTED BY 5 AUTHORS
 --------------------------------------------------------------------------------
 ```
 
@@ -419,17 +426,18 @@ To include authors with no violations, use the `-v` command line argument.
 $ phpcs -v --report=gitblame /path/to/code
 
 PHP CODE SNIFFER GIT BLAME SUMMARY
---------------------------------------------------------------------------------
-AUTHOR                                                              COUNT (%)
---------------------------------------------------------------------------------
-jsmith                                                              51 (40.8)
-jblogs                                                              44 (30)
-pdeveloper                                                          43 (10.33)
-jscript                                                             27 (19.84)
-toogood                                                             0 (0)
---------------------------------------------------------------------------------
-A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
+AUTHOR                                    (Author %) (Overall %) COUNT
+----------------------------------------------------------------------
+jsmith                                        (2.25)     (61.11)    33
+jblogs                                        (2.48)     (29.63)    16
+pdeveloper                                    (0.78)      (5.56)     3
+jscript                                       (1.39)      (1.85)     1
+toogood                                       (3.33)      (1.85)     1
+mrsperfect                                       (0)         (0)     0
+----------------------------------------------------------------------
+A TOTAL OF 54 SNIFF VIOLATIONS WERE COMMITTED BY 6 AUTHORS
+----------------------------------------------------------------------
 ```
 
 > [!IMPORTANT]
