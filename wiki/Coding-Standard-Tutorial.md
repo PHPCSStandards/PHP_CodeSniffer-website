@@ -185,17 +185,23 @@ if ($obj->contentsAreValid($array)) {
 ```
 
 When PHP_CodeSniffer is run on the file using our new coding standard, 3 errors will be reported:
+<!--
+Regenerate the below output snippet by:
+1. Placing the example sniff code somewhere in a standard which is included in your `installed_paths`
+2. And then running the following command:
+$ phpcs ./build/wiki-code-samples/tutorial --basepath=build/wiki-code-samples/tutorial --standard=MyStandard --sniffs=MyStandard.Commenting.DisallowHashComments --report-width=100
+-->
 ```bash
 $ phpcs --standard=MyStandard test.php
 
 FILE: test.php
---------------------------------------------------------------------------------
-FOUND 3 ERROR(S) AFFECTING 3 LINE(S)
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------
   7 | ERROR | Hash comments are prohibited; found # Hash comments should be flagged.
  11 | ERROR | Hash comments are prohibited; found # Value needs to be an array.
  13 | ERROR | Hash comments are prohibited; found # Error.
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
