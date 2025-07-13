@@ -222,7 +222,7 @@ To enable progress reporting, use the `-p` command line argument.
 With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked, like so:
 
 ```bash
-$ phpcs /path/to/code/CodeSniffer -p
+$ phpcs /path/to/project -p
 
 ...S........W.........S.....................................  60 / 110 (54%)
 ..........EEEE.E.E.E.E.E.E.E.E..W..EEE.E.E.E.EE.E.           110 / 110 (100%)
@@ -247,7 +247,7 @@ Legend for the progress indicators:
 With verbose output enabled, PHP_CodeSniffer will print the file that it is checking, show you how many tokens and lines the file contains, and let you know how long it took to process. The output will look like this:
 
 ```bash
-$ phpcs /path/to/code/CodeSniffer -v
+$ phpcs /path/to/project -v
 
 Registering sniffs in PEAR standard... DONE (28 sniffs registered)
 Creating file list... DONE (158 files in queue)
