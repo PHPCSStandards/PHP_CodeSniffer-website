@@ -262,7 +262,8 @@ PHP_CodeSniffer can output an XML report similar to the one produced by Checksty
 
 ```bash
 $ phpcs --report=checkstyle /path/to/code
-
+```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="x.x.x">
 <file name="/path/to/code/classA.php">
@@ -284,7 +285,8 @@ PHP_CodeSniffer can output a CSV report to allow you to parse the output and use
 
 ```bash
 $ phpcs --report=csv /path/to/code
-
+```
+```csv
 File,Line,Column,Type,Message,Source,Severity,Fixable
 "/path/to/code/classA.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5,0
 "/path/to/code/classA.php",4,12,error,"TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",Generic.PHP.LowerCaseConstant.Found,5,1
@@ -308,7 +310,8 @@ PHP_CodeSniffer can output a diff file that can be applied using the `patch` com
 
 ```bash
 $ phpcs --report=diff /path/to/code
-
+```
+```diff
 --- /path/to/code/file.php
 +++ PHP_CodeSniffer
 @@ -1,8 +1,8 @@
@@ -441,7 +444,8 @@ PHP_CodeSniffer can output an JSON report to allow you to parse the output and u
 
 ```bash
 $ phpcs --report=json /path/to/code
-
+```
+```json
 {
   "totals": {
     "errors": 4,
@@ -520,7 +524,8 @@ PHP_CodeSniffer can output an XML report similar to the one produced by JUnit, a
 
 ```bash
 $ phpcs --report=junit /path/to/code
-
+```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="PHP_CodeSniffer x.x.x" tests="6" failures="5">
 <testsuite name="/path/to/code/classA.php" tests="5" failures="5">
@@ -612,7 +617,8 @@ PHP_CodeSniffer can output an XML report to allow you to parse the output and us
 
 ```bash
 $ phpcs --report=xml /path/to/code
-
+```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpcs version="x.x.x">
 <file name="/path/to/code/classA.php" errors="4" warnings="1" fixable="3">
