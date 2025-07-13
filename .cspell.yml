@@ -51,3 +51,8 @@ words:
 
   # Used in Wiki Reporting page, "emacs" file.
   - defun
+
+  # Used in CONTRIBUTING.
+  - maxlevel
+  - replacer
+  - Shellcheck
