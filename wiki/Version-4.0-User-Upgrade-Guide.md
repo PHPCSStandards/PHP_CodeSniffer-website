@@ -275,7 +275,9 @@ If you haven't done so already, execute a search & replace on your code base.
 The exit codes used by PHP_CodeSniffer have changed. This change was made primarily to allow for `phpcbf` to exit with a `0` exit code if all fixable issues were fixed and there are no non-auto-fixable issues remaining.
 
 The pre-existing [`ignore_warnings_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-warnings-when-generating-the-exit-code) and [`ignore_errors_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-errors-when-generating-the-exit-code) config flags will still be respected.  
-Additionally, you can now use the new `ignore_non_auto_fixable_on_exit` config flag to ignore non-auto-fixable issues when the exit code is generated.
+Additionally, you can now use the new [`ignore_non_auto_fixable_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-non-auto-fixable-issues-when-generating-the-exit-code)` config flag to ignore non-auto-fixable issues when the exit code is generated.
+
+See [Advanced Usage](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#understanding-the-exit-codes) for a comparison of the old exit codes versus the new ones.
 
 #### Upgrading
 
