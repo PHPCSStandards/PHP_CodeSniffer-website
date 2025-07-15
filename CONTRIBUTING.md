@@ -61,7 +61,7 @@ When in doubt, open an issue first to discuss your change proposal.
 
     ... the actual page ...
     ```
-* Regarding command replacement markers ...
+* Guidelines for command replacement placeholders:
     * A marker MUST look like `{{COMMAND-OUTPUT ...}}` with `...` being replacement with a quoted `phpcs` or `phpcbf` command.
     * A marker MUST be at the start of a line.
     * A marker MUST be on a line by itself.
