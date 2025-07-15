@@ -49,7 +49,7 @@ When in doubt, open an issue first to discuss your change proposal.
 
 * Small PRs fixing only one thing will be better received than larger PRs fixing a lot of things in one go.
 * Always use absolute links (https://...). This ensures that the links will work when pages are viewed/edited in this repo, as well as when the pages are viewed from the PHPCS Wiki.
-* Add table of contents markers if appropriate.
+* Add table of contents placeholders if appropriate.
     The start of a page containing a table of contents should look like this:
     ```md
     ## Table of Contents
