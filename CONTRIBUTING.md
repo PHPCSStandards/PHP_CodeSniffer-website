@@ -34,7 +34,7 @@ If you would like to improve the documentation:
 3. Make your changes. The Wiki source files are in the `/wiki` subdirectory.
 4. Commit your changes with a meaningful commit message.
 5. Push your changes to your fork.
-6. Submit a pull request from your fork to this repository.
+6. Submit a pull request from your fork to this repository. This process is documented in more detail in the [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 7. Please ensure your pull requests passes all automated quality checks.
 8. If you updated anything which will be auto-replaced via the preprocessing:
     * The GitHub Actions workflow will do a "dry-run" for every PR (pre-process only, no push to the wiki).
