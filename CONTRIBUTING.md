@@ -45,7 +45,7 @@ When in doubt, open an issue first to discuss your change proposal.
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-### Guidelines for updating the wiki files
+### Guidelines for Updating the Wiki Files
 
 * Small PRs fixing only one thing will be better received than larger PRs fixing a lot of things in one go.
 * Always use fully qualified links. This ensures that the links will work when pages are viewed/edited in this repo, as well as when the pages are viewed from the PHPCS wiki.
