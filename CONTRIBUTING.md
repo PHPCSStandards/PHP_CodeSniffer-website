@@ -105,7 +105,7 @@ If you only want to test the TOC generation, make sure you copy the wiki files t
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-#### Running code quality checks locally
+#### Running Code Quality Checks Locally
 
 All used code quality checks can be run locally.
 Configuration files have been committed to the repository to ensure you will locally get the same results as when the tooling runs in CI.
