@@ -52,7 +52,7 @@ When in doubt, open an issue first to discuss your change proposal.
 * Add table of contents markers if appropriate.
     The start of a page containing a table of contents should look like this:
     ```md
-    ## Table of contents
+    ## Table of Contents
 
     <!-- START doctoc -->
     <!-- END doctoc -->
