@@ -1,0 +1,25 @@
+version: 1
+appendOnly: true
+labels:
+  - label: "Status: triage"
+    draft: false
+    author-can-merge: false
+
+  - label: "Component: Website"
+    draft: false
+    files:
+      - "src/.*"
+
+  - label: "Component: Wiki"
+    draft: false
+    files:
+      - "build/wiki-command-replacer.sh"
+      - "build/wiki-code-samples/.*"
+      - "wiki/.*"
+
+  - label: "Type: chores/QA/automation"
+    draft: false
+    files:
+      - ".yamllint.yml"
+      - ".github/.*"
+      - "build/wiki-command-replacer.sh"
