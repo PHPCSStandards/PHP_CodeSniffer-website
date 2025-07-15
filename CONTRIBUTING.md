@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [PHP_CodeSniffer Wiki](#php_codesniffer-wiki)
-    * [How does the wiki get updated ?](#how-does-the-wiki-get-updated-)
+    * [How does the Wiki get updated ?](#how-does-the-wiki-get-updated-)
     * [Contributing to the Wiki](#contributing-to-the-wiki)
     * [Guidelines for updating the wiki files](#guidelines-for-updating-the-wiki-files)
         * [Running the pre-processing locally](#running-the-pre-processing-locally)
@@ -20,7 +20,7 @@ For now, the documentation for the PHP_CodeSniffer project is available via the 
 
 * The source of the Wiki was imported into this repository to maintain the commit history.
 * A [GitHub Actions workflow](https://github.com/PHPCSStandards/PHP_CodeSniffer-documentation/blob/main/.github/workflows/publish-wiki.yml) was added:
-    * It pre-processes the `.md` files to replace placeholders and inject some other content (see [Guidelines for updating the wiki files](#guidelines-for-updating-the-wiki-files)).
+    * It pre-processes the `.md` files to replace placeholders and inject some other content (see [Guidelines for Updating the Wiki Files](#guidelines-for-updating-the-wiki-files)).
     * And then it pushes the resulting updated `.md` files to the upstream Wiki repo.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -37,7 +37,7 @@ If you would like to improve the documentation:
 6. Submit a pull request from your fork to this repository. This process is documented in more detail in the [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 7. Please ensure your pull requests passes all automated quality checks.
 8. If you updated anything which will be auto-replaced via the pre-processing:
-    * The GitHub Actions workflow will do a "dry-run" for every PR (pre-process only, no push to the wiki).
+    * The GitHub Actions workflow will do a "dry-run" for every PR (pre-process only, no push to the Wiki).
     * Please download the artifact which was created via this dry-run and verify the pre-processing replaced the output in the way you expected.
 
 When in doubt, open an issue first to discuss your change proposal.
@@ -48,7 +48,7 @@ When in doubt, open an issue first to discuss your change proposal.
 ### Guidelines for Updating the Wiki Files
 
 * Small PRs fixing only one thing will be better received than larger PRs fixing a lot of things in one go.
-* Always use fully qualified links. This ensures that the links will work when pages are viewed/edited in this repo, as well as when the pages are viewed from the PHPCS wiki.
+* Always use fully qualified links. This ensures that the links will work when pages are viewed/edited in this repo, as well as when the pages are viewed from the PHPCS Wiki.
 * Add table of contents markers if appropriate.
     The start of a page containing a table of contents should look like this:
     ```md
@@ -65,7 +65,7 @@ When in doubt, open an issue first to discuss your change proposal.
     * A marker MUST look like `{{COMMAND-OUTPUT ...}}` with `...` being replacement with a quoted `phpcs` or `phpcbf` command.
     * A marker MUST be at the start of a line.
     * A marker MUST be on a line by itself.
-    * Commands will be run from the project root directory. Keep this in mind when adding a command replacement marker to a wiki file.
+    * Commands will be run from the project root directory. Keep this in mind when adding a command replacement marker to a Wiki file.
 * The command replacement will not add markdown code fence syntax, so make sure to do this yourself.
 * If a code sample is needed to generate the desired output, place the code sample in a file in the `build/wiki-code-samples` directory.
 
@@ -88,7 +88,7 @@ build/wiki-command-replacer.sh
 
 Notes:
 * For the bash script to succeed, the `phpcs` and `phpcbf` commands need to be available in the `PATH` for your OS.
-* The bash script will copy the wiki files to the `_wiki` directory before making any replacements to prevent anyone accidentally committing the processed files.
+* The bash script will copy the Wiki files to the `_wiki` directory before making any replacements to prevent anyone accidentally committing the processed files.
 
 The table of contents generation can be tested locally by installing the `doctoc` tool and running this locally like so:
 
@@ -100,7 +100,7 @@ doctoc ./_wiki/Version-4.0-User-Upgrade-Guide.md --github --maxlevel 3 --update-
 
 Note that this presumes the command replacer has already run and the files have already been copied to the `_wiki` directory.
 
-If you only want to test the TOC generation, make sure you copy the wiki files to the `_wiki` directory before running these commands.
+If you only want to test the TOC generation, make sure you copy the Wiki files to the `_wiki` directory before running these commands.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -140,7 +140,7 @@ To run the quality checks locally, install the following tooling:
 
 Publicly editable Wiki pages for big projects get vandalized pretty often and we don't want to risk this type of vandalism leading to users getting incorrect information.
 
-As a secondary reason, there are parts of the wiki (especially the output examples), which were pretty out of date.
-By having the wiki source in this repository, it allows for automating certain updates which would otherwise have to be done manually.
+As a secondary reason, there are parts of the Wiki (especially the output examples), which were pretty out of date.
+By having the Wiki source in this repository, it allows for automating certain updates which would otherwise have to be done manually.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
