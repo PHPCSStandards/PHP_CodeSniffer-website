@@ -62,10 +62,10 @@ When in doubt, open an issue first to discuss your change proposal.
     ... the actual page ...
     ```
 * Guidelines for command replacement placeholders:
-    * A marker MUST look like `{{COMMAND-OUTPUT ...}}` with `...` being replacement with a quoted `phpcs` or `phpcbf` command.
-    * A marker MUST be at the start of a line.
-    * A marker MUST be on a line by itself.
-    * Commands will be run from the project root directory. Keep this in mind when adding a command replacement marker to a Wiki file.
+    * A placeholder MUST look like `{{COMMAND-OUTPUT ...}}` with `...` replaced with a quoted `phpcs` or `phpcbf` command. Example: `{{COMMAND-OUTPUT "phpcbf --report-width=110 --no-colors -h"}}`
+    * A placeholder MUST be at the start of a line.
+    * A placeholder MUST be on a line by itself.
+    * Commands will be run from the project root directory. Keep this in mind when adding a placeholder to a Wiki file.
 * The command replacement will not add markdown code fence syntax, so make sure to do this yourself.
 * If a code sample is needed to generate the desired output, place the code sample in a file in the `build/wiki-code-samples` directory.
 
