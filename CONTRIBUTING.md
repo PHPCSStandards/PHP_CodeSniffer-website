@@ -38,7 +38,7 @@ If you would like to improve the documentation:
 7. Please ensure your pull requests passes all automated quality checks.
 8. If you updated anything which will be auto-replaced via the preprocessing:
     * The GitHub Actions workflow will do a "dry-run" for every PR (pre-process only, no push to the wiki).
-    * Please download the artifact which was created via this dry-run and verify the preprocessing replaced the output in the way you expected.
+    * Please download the artifact which was created via this dry-run and verify the pre-processing replaced the output in the way you expected.
 
 When in doubt, open an issue first to discuss your change proposal.
 
