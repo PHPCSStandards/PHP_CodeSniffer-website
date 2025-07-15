@@ -27,7 +27,7 @@ Fixes #
 - [ ] I grant the project the right to include my changes under the BSD-3-Clause license (and I have the right to grant these rights).
 - [ ] I have verified that my changes comply with the projects coding standards.
 - [ ] \[When adding a new Wiki page\] I have added the new page to the `_Sidebar.md` file.
-- [ ] \[When adding/updating output examples\] I have verified via the GitHub Actions artifact that the preprocessing handles the command correctly.
+- [ ] \[When adding/updating output examples\] I have verified via the GitHub Actions artifact that the pre-processing handles the command correctly.
 
 <!--
 ============================================================================================
