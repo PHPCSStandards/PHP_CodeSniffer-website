@@ -136,7 +136,7 @@ To run the quality checks locally, install the following tooling:
 
 ### Frequently Asked Questions
 
-#### Why not make the Wiki publicly editable ?
+#### Why Not Make the Wiki Publicly Editable?
 
 Publicly editable Wiki pages for big projects get vandalized pretty often and we don't want to risk this type of vandalism leading to users getting incorrect information.
 
