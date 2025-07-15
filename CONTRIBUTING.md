@@ -16,7 +16,7 @@
 
 For now, the documentation for the PHP_CodeSniffer project is available via the [project Wiki](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki).
 
-### How does the wiki get updated ?
+### How Does the Wiki Get Updated?
 
 * The source of the Wiki was imported into this repository to maintain the commit history.
 * A [GitHub Actions workflow](https://github.com/PHPCSStandards/PHP_CodeSniffer-documentation/blob/main/.github/workflows/publish-wiki.yml) was added:
