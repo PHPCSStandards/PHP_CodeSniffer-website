@@ -1,4 +1,4 @@
-# Contributing to the PHP_CodeSniffer documentation
+# Contributing to the PHP_CodeSniffer Documentation
 
 ## Table of Contents
 
