@@ -14,6 +14,9 @@ on:
   # Allow running this workflow manually from the Actions tab.
   workflow_dispatch:
   # Allow this workflow to be triggered from outside.
+  repository_dispatch:
+    types:
+      - 'phpcs-release'
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -38,6 +41,37 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 'latest'
+          ini-values: error_reporting=-1, display_errors=On, log_errors_max_len=0
+          tools: phpcs, phpcbf
+          coverage: none
+
+      # Make sure we've gotten the latest PHPCS version from setup-php.
+      - name: Retrieve latest release info
+        uses: octokit/request-action@v2.x
+        id: get_latest_release
+        with:
+          route: GET /repos/PHPCSStandards/PHP_CodeSniffer/releases/latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Grab latest tag name from API response
+        id: latest_version
+        run: |
+          echo "TAG=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Grab the version
+        id: phar_version
+        # yamllint disable-line rule:line-length
+        run: echo "VERSION=$(phpcs --version | grep --only-matching --max-count=1 --extended-regexp '\b[0-9]+(\.[0-9]+)+')" >> "$GITHUB_OUTPUT"
+
+      - name: Fail the build if the PHAR is not the correct version
+        if: ${{ steps.phar_version.outputs.VERSION != steps.latest_version.outputs.TAG }}
+        run: exit 1
+
 
       # ################################################################################
       # Update Wiki files.
@@ -49,6 +83,10 @@ jobs:
       - name: Copy wiki files to temporary location
         shell: bash
         run: cp -v -a wiki _wiki
+
+      - name: Find / replace output example placeholders
+        shell: bash
+        run: build/wiki-command-replacer.sh
 
       - name: Update tables of contents
         run: doctoc ./_wiki/ --github --maxlevel 4 --update-only
@@ -94,7 +132,7 @@ jobs:
             A dry-run has been executed on your PR, executing all markdown pre-processing for the wiki files.
 
             Please review the resulting final markdown files via the [created artifact](${{ steps.artifact.outputs.artifact-url }}).
-            This is especially important when adding new pages.
+            This is especially important when adding new pages or updating auto-generated output blocks.
 
             _N.B.: the above link will automatically be updated when this PR is updated._
 
