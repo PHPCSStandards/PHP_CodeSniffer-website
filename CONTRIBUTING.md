@@ -1,5 +1,17 @@
 # Contributing to the PHP_CodeSniffer documentation
 
+## Table of Contents
+
+* [PHP_CodeSniffer Wiki](#php_codesniffer-wiki)
+    * [How does the wiki get updated ?](#how-does-the-wiki-get-updated-)
+    * [Contributing to the Wiki](#contributing-to-the-wiki)
+    * [Guidelines for updating the wiki files](#guidelines-for-updating-the-wiki-files)
+        * [Running the pre-processing locally](#running-the-pre-processing-locally)
+        * [Running code quality checks locally](#running-code-quality-checks-locally)
+    * [Frequently Asked Questions](#frequently-asked-questions)
+        * [Why not make the Wiki publicly editable ?](#why-not-make-the-wiki-publicly-editable-)
+
+
 ## PHP_CodeSniffer Wiki
 
 For now, the documentation for the PHP_CodeSniffer project is available via the [project Wiki](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki).
@@ -13,6 +25,8 @@ For now, the documentation for the PHP_CodeSniffer project is available via the 
         The code samples used for generating some of this output can be found in the `build/wiki/code-samples` directory.
     * Replace `<!-- START doctoc --> <!-- END doctoc -->` placeholders with a Table of Contents for the page in Markdown.
     * Add a prominent (hidden) warning at the top of each wiki file to warn people against editing the wiki files via the GitHub wiki editing interface.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ### Contributing to the Wiki
@@ -30,6 +44,8 @@ If you would like to improve the documentation:
     * Please download the artifact which was created via this dry-run and verify the preprocessing replaced the output in the way you expected.
 
 When in doubt, open an issue first to discuss your change proposal.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ### Guidelines for updating the wiki files
@@ -55,6 +71,8 @@ When in doubt, open an issue first to discuss your change proposal.
     * Commands will be run from the project root directory. Keep this in mind when adding a command replacement marker to a wiki file.
 * The command replacement will not add markdown code fence syntax, so make sure to do this yourself.
 * If a code sample is needed to generate the desired output, place the code sample in a file in the `build/wiki-code-samples` directory.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 #### Running the pre-processing locally
@@ -87,6 +105,8 @@ Note that this presumes the command replacer has already run and the files have 
 
 If you only want to test the TOC generation, make sure you copy the wiki files to the `_wiki` directory before running these commands.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 #### Running code quality checks locally
 
@@ -114,6 +134,8 @@ To run the quality checks locally, install the following tooling:
     * [Installation instructions](https://github.com/koalaman/shellcheck?tab=readme-ov-file#installing)
     * Run it like so: `shellcheck ./build/wiki-command-replacer.sh`
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Frequently Asked Questions
 
@@ -123,3 +145,5 @@ Publicly editable Wiki pages for big projects get vandalized pretty often and we
 
 As a secondary reason, there are parts of the wiki (especially the output examples), which were pretty out of date.
 By having the wiki source in this repository, it allows for automating certain updates which would otherwise have to be done manually.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
