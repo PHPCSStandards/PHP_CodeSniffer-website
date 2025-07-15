@@ -3,13 +3,13 @@
 ## Table of Contents
 
 * [PHP_CodeSniffer Wiki](#php_codesniffer-wiki)
-    * [How does the Wiki get updated ?](#how-does-the-wiki-get-updated-)
+    * [How Does the Wiki Get Updated?](#how-does-the-wiki-get-updated)
     * [Contributing to the Wiki](#contributing-to-the-wiki)
-    * [Guidelines for updating the wiki files](#guidelines-for-updating-the-wiki-files)
+    * [Guidelines for Updating the Wiki Files](#guidelines-for-updating-the-wiki-files)
         * [Running the pre-processing locally](#running-the-pre-processing-locally)
-        * [Running code quality checks locally](#running-code-quality-checks-locally)
+        * [Running Code Quality Checks Locally](#running-code-quality-checks-locally)
     * [Frequently Asked Questions](#frequently-asked-questions)
-        * [Why not make the Wiki publicly editable ?](#why-not-make-the-wiki-publicly-editable-)
+        * [Why Not Make the Wiki Publicly Editable?](#why-not-make-the-wiki-publicly-editable)
 
 
 ## PHP_CodeSniffer Wiki
