@@ -19,12 +19,9 @@ For now, the documentation for the PHP_CodeSniffer project is available via the 
 ### How does the wiki get updated ?
 
 * The source of the Wiki was imported into this repository to maintain the commit history.
-* A [GitHub Actions workflow](https://github.com/PHPCSStandards/PHP_CodeSniffer-documentation/blob/main/.github/workflows/publish-wiki.yml) was added to automatically push changes made in the Wiki files in this repository to the upstream Wiki repo.
-* Prior to pushing the changes, the workflow will pre-process the files and make the following changes:
-    * Replace `{{COMMAND-OUTPUT ...}}` command-line output placeholders with actual command-line output from either `phpcs` or `phpcbf`.
-        The code samples used for generating some of this output can be found in the `build/wiki/code-samples` directory.
-    * Replace `<!-- START doctoc --> <!-- END doctoc -->` placeholders with a Table of Contents for the page in Markdown.
-    * Add a prominent (hidden) warning at the top of each wiki file to warn people against editing the wiki files via the GitHub wiki editing interface.
+* A [GitHub Actions workflow](https://github.com/PHPCSStandards/PHP_CodeSniffer-documentation/blob/main/.github/workflows/publish-wiki.yml) was added:
+    * It pre-processes the `.md` files to replace placeholders and inject some other content (see [Guidelines for updating the wiki files](#guidelines-for-updating-the-wiki-files)).
+    * And then it pushes the resulting updated `.md` files to the upstream Wiki repo.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
