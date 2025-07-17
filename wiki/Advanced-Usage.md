@@ -358,32 +358,34 @@ if ($condition) {
 The scope map output is:
 ```text
     *** START SCOPE MAP ***
-    Start scope map at 1: T_IF => if
-    Process token 2 []: T_WHITESPACE =>  
-    Process token 3 []: T_OPEN_PARENTHESIS => (
-    * skipping parenthesis *
-    Process token 6 []: T_WHITESPACE =>  
-    Process token 7 []: T_OPEN_CURLY_BRACKET => {
-    => Found scope opener for 1 (T_IF)
-    Process token 8 [opener:7;]: T_WHITESPACE => \n
-    Process token 9 [opener:7;]: T_WHITESPACE =>     
-    Process token 10 [opener:7;]: T_ECHO => echo
-    Process token 11 [opener:7;]: T_WHITESPACE =>  
-    Process token 12 [opener:7;]: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
-    Process token 13 [opener:7;]: T_SEMICOLON => ;
-    Process token 14 [opener:7;]: T_WHITESPACE => \n
-    Process token 15 [opener:7;]: T_CLOSE_CURLY_BRACKET => }
-    => Found scope closer for 1 (T_IF)
+    Start scope map at 2:T_IF => if
+    => Begin scope map recursion at token 2 with depth 1
+    Process token 3 on line 2 []: T_WHITESPACE =>
+    Process token 4 on line 2 []: T_OPEN_PARENTHESIS => (
+    Process token 5 on line 2 []: T_VARIABLE => $condition
+    Process token 6 on line 2 []: T_CLOSE_PARENTHESIS => )
+    Process token 7 on line 2 []: T_WHITESPACE =>
+    Process token 8 on line 2 []: T_OPEN_CURLY_BRACKET => {
+    => Found scope opener for 2:T_IF
+    Process token 9 on line 2 [opener:8;]: T_WHITESPACE => \n
+    Process token 10 on line 3 [opener:8;]: T_WHITESPACE =>
+    Process token 11 on line 3 [opener:8;]: T_ECHO => echo
+    Process token 12 on line 3 [opener:8;]: T_WHITESPACE =>
+    Process token 13 on line 3 [opener:8;]: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
+    Process token 14 on line 3 [opener:8;]: T_SEMICOLON => ;
+    Process token 15 on line 3 [opener:8;]: T_WHITESPACE => \n
+    Process token 16 on line 4 [opener:8;]: T_CLOSE_CURLY_BRACKET => }
+    => Found scope closer (16:T_CLOSE_CURLY_BRACKET) for 2:T_IF
     *** END SCOPE MAP ***
 ```
 
 The scope map output above shows the following pieces of information about the file:
-* A scope token `if` was found at token 1 (note that token 0 is the open PHP tag).
-* The opener for the if statement, the open curly brace, was found at token 7.
-* The closer for the if statement, the close curly brace, was found at token 15.
-* Tokens 8 - 15 are all included in the scope set by the scope opener at token 7, the open curly brace. This indicates that these tokens are all within the if statement.
+* A scope token `if` was found at token 2 (note that token 0 is the open PHP tag).
+* The opener for the if statement, the open curly brace, was found at token 8.
+* The closer for the if statement, the close curly brace, was found at token 16.
+* Tokens 9 - 15 are all included in the scope set by the scope opener at token 8, the open curly brace. This indicates that these tokens are all within the if statement.
 
-The scope map output is most useful when debugging PHP_CodeSniffer's scope map, which is critically important to the successful checking of a file, but is also useful for checking the type of a particular token. For example, if you are unsure of the token type for an opening curly brace, the scope map output shows you that the type is T_OPEN_CURLY_BRACKET and not, for example, T_OPEN_CURLY_BRACE.
+The scope map output is most useful when debugging PHP_CodeSniffer's scope map, which is critically important to the successful checking of a file, but is also useful for checking the type of a particular token. For example, if you are unsure of the token type for an opening curly brace, the scope map output shows you that the type is `T_OPEN_CURLY_BRACKET` and not, for example, `T_OPEN_CURLY_BRACE`.
 
 ### The Level Map
 
@@ -400,36 +402,37 @@ if ($condition) {
 The level map output is:
 ```text
     *** START LEVEL MAP ***
-    Process token 0 on line 1 [lvl:0;]: T_OPEN_TAG => <?php\n
-    Process token 1 on line 2 [lvl:0;]: T_IF => if
-    Process token 2 on line 2 [lvl:0;]: T_WHITESPACE =>  
-    Process token 3 on line 2 [lvl:0;]: T_OPEN_PARENTHESIS => (
-    Process token 4 on line 2 [lvl:0;]: T_VARIABLE => $condition
-    Process token 5 on line 2 [lvl:0;]: T_CLOSE_PARENTHESIS => )
-    Process token 6 on line 2 [lvl:0;]: T_WHITESPACE =>  
-    Process token 7 on line 2 [lvl:0;]: T_OPEN_CURLY_BRACKET => {
-    => Found scope opener for 1 (T_IF)
+    Process token 0 on line 1 [col:1;len:5;lvl:0;]: T_OPEN_TAG => <?php
+    Process token 1 on line 1 [col:6;len:0;lvl:0;]: T_WHITESPACE => \n
+    Process token 2 on line 2 [col:1;len:2;lvl:0;]: T_IF => if
+    Process token 3 on line 2 [col:3;len:1;lvl:0;]: T_WHITESPACE =>
+    Process token 4 on line 2 [col:4;len:1;lvl:0;]: T_OPEN_PARENTHESIS => (
+    Process token 5 on line 2 [col:5;len:10;lvl:0;]: T_VARIABLE => $condition
+    Process token 6 on line 2 [col:15;len:1;lvl:0;]: T_CLOSE_PARENTHESIS => )
+    Process token 7 on line 2 [col:16;len:1;lvl:0;]: T_WHITESPACE =>
+    Process token 8 on line 2 [col:17;len:1;lvl:0;]: T_OPEN_CURLY_BRACKET => {
+    => Found scope opener for 2:T_IF
         * level increased *
-        * token 1 (T_IF) added to conditions array *
-        Process token 8 on line 2 [lvl:1;conds;T_IF;]: T_WHITESPACE => \n
-        Process token 9 on line 3 [lvl:1;conds;T_IF;]: T_WHITESPACE =>     
-        Process token 10 on line 3 [lvl:1;conds;T_IF;]: T_ECHO => echo
-        Process token 11 on line 3 [lvl:1;conds;T_IF;]: T_WHITESPACE =>  
-        Process token 12 on line 3 [lvl:1;conds;T_IF;]: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
-        Process token 13 on line 3 [lvl:1;conds;T_IF;]: T_SEMICOLON => ;
-        Process token 14 on line 3 [lvl:1;conds;T_IF;]: T_WHITESPACE => \n
-        Process token 15 on line 4 [lvl:1;conds;T_IF;]: T_CLOSE_CURLY_BRACKET => }
-        => Found scope closer for 7 (T_OPEN_CURLY_BRACKET)
+        * token 2:T_IF added to conditions array *
+        Process token 9 on line 2 [col:18;len:0;lvl:1;conds;T_IF;]: T_WHITESPACE => \n
+        Process token 10 on line 3 [col:1;len:4;lvl:1;conds;T_IF;]: T_WHITESPACE =>
+        Process token 11 on line 3 [col:5;len:4;lvl:1;conds;T_IF;]: T_ECHO => echo
+        Process token 12 on line 3 [col:9;len:1;lvl:1;conds;T_IF;]: T_WHITESPACE =>
+        Process token 13 on line 3 [col:10;len:20;lvl:1;conds;T_IF;]: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
+        Process token 14 on line 3 [col:30;len:1;lvl:1;conds;T_IF;]: T_SEMICOLON => ;
+        Process token 15 on line 3 [col:31;len:0;lvl:1;conds;T_IF;]: T_WHITESPACE => \n
+        Process token 16 on line 4 [col:1;len:1;lvl:1;conds;T_IF;]: T_CLOSE_CURLY_BRACKET => }
+        => Found scope closer for 8:T_OPEN_CURLY_BRACKET
         * token T_IF removed from conditions array *
         * level decreased *
-    Process token 16 on line 4 [lvl:0;]: T_WHITESPACE => \n
-    Process token 17 on line 5 [lvl:0;]: T_CLOSE_TAG => ?>\n
+    Process token 17 on line 4 [col:2;len:0;lvl:0;]: T_WHITESPACE => \n
+    Process token 18 on line 5 [col:1;len:2;lvl:0;]: T_CLOSE_TAG => ?>\n
     *** END LEVEL MAP ***
 ```
 
 The level map output above shows the following pieces of information about the file:
-* A scope opener, an open curly brace, was found at token 7 and opened the scope for an if statement, defined at token 1.
-* Tokens 8 - 15 are all included in the scope set by the scope opener at token 7, the open curly brace. All these tokens are at level 1, indicating that they are enclosed in 1 scope condition, and all these tokens are enclosed in a single condition; an if statement.
+* A scope opener, an open curly brace, was found at token 8 and opened the scope for an if statement, defined at token 2.
+* Tokens 9 - 16 are all included in the scope set by the scope opener at token 8, the open curly brace. All these tokens are at level 1, indicating that they are enclosed in 1 scope condition, and all these tokens are enclosed in a single condition; an if statement.
 
 The level map is most commonly used to determine indentation rules (e.g., a token 4 levels deep requires 16 spaces of indentation) or to determine if a particular token is within a particular scope (e.g., a function keyword is within a class scope, making it a method).
 
@@ -452,54 +455,56 @@ if ($condition) {
 ?>
 ```
 
+<!-- Regenerate using "phpcs ./build/wiki-code-samples/annotated-ruleset/debug-output.php -vvv --standard=PEAR" -->
 The token processing output is:
 ```text
     *** START TOKEN PROCESSING ***
-    Process token 0: T_OPEN_TAG => <?php\n
-        Processing PEAR_Sniffs_Commenting_FileCommentSniff... DONE in 0 seconds
-        Processing Generic_Sniffs_PHP_DisallowShortOpenTagSniff... DONE in 0 seconds
-        Processing Generic_Sniffs_Files_LineLengthSniff... DONE in 0.0001 seconds
-        Processing Generic_Sniffs_Files_LineEndingsSniff... DONE in 0 seconds
-    Process token 1: T_IF => if
-        Processing PEAR_Sniffs_ControlStructures_ControlSignatureSniff... DONE in 0.0001 seconds
-        Processing PEAR_Sniffs_ControlStructures_MultiLineConditionSniff... DONE in 0 seconds
-        Processing PEAR_Sniffs_WhiteSpace_ScopeClosingBraceSniff... DONE in 0 seconds
-        Processing PEAR_Sniffs_WhiteSpace_ScopeIndentSniff... DONE in 0 seconds
-        Processing Generic_Sniffs_ControlStructures_InlineControlStructureSniff... DONE in 0 seconds
-    Process token 2: T_WHITESPACE =>  
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 3: T_OPEN_PARENTHESIS => (
-    Process token 4: T_VARIABLE => $condition
-        Processing PEAR_Sniffs_NamingConventions_ValidVariableNameSniff... DONE in 0 seconds
-    Process token 5: T_CLOSE_PARENTHESIS => )
-    Process token 6: T_WHITESPACE =>  
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 7: T_OPEN_CURLY_BRACKET => {
-    Process token 8: T_WHITESPACE => \n
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 9: T_WHITESPACE =>     
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 10: T_ECHO => echo
-    Process token 11: T_WHITESPACE =>  
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 12: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
-    Process token 13: T_SEMICOLON => ;
-    Process token 14: T_WHITESPACE => \n
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 15: T_CLOSE_CURLY_BRACKET => }
-    Process token 16: T_WHITESPACE => \n
-        Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
-    Process token 17: T_CLOSE_TAG => ?>\n
+    Process token 0: T_OPEN_TAG => <?php
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff... DONE in 0.0002 seconds
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\WhiteSpace\ScopeIndentSniff... DONE in 0.0003 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\DisallowShortOpenTagSniff... DONE in 0.0002 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff... DONE in 0.0004 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff... DONE in 0.0002 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineEndingsSniff... DONE in 0.0002 seconds
+    Process token 1: T_WHITESPACE => \n
+    Process token 2: T_IF => if
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\ControlStructures\ControlSignatureSniff... DONE in 0.0002 seconds
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\ControlStructures\MultiLineConditionSniff... DONE in 0.0001 seconds
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\WhiteSpace\ScopeClosingBraceSniff... DONE in 0.0001 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff... DONE in 0.0001 seconds
+    Process token 3: T_WHITESPACE =>
+    Process token 4: T_OPEN_PARENTHESIS => (
+    Process token 5: T_VARIABLE => $condition
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\FunctionCallSignatureSniff... DONE in 0.0001 seconds
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\NamingConventions\ValidVariableNameSniff... DONE in 0.001 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff... DONE in 0.0001 seconds
+    Process token 6: T_CLOSE_PARENTHESIS => )
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\FunctionCallSignatureSniff... DONE in 0.0001 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff... DONE in 0.0001 seconds
+    Process token 7: T_WHITESPACE =>
+    Process token 8: T_OPEN_CURLY_BRACKET => {
+    Process token 9: T_WHITESPACE => \n
+    Process token 10: T_WHITESPACE =>
+    Process token 11: T_ECHO => echo
+    Process token 12: T_WHITESPACE =>
+    Process token 13: T_CONSTANT_ENCAPSED_STRING => 'Condition was true'
+    Process token 14: T_SEMICOLON => ;
+    Process token 15: T_WHITESPACE => \n
+    Process token 16: T_CLOSE_CURLY_BRACKET => }
+        Processing PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\FunctionCallSignatureSniff... DONE in 0.0001 seconds
+        Processing PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff... DONE in 0.0002 seconds
+    Process token 17: T_WHITESPACE => \n
+    Process token 18: T_CLOSE_TAG => ?>\n
     *** END TOKEN PROCESSING ***
 ```
 
 Every token processed is shown, along with its ID, type and contents. For each token, all sniffs that were executed on the token are displayed, along with the running time.
 
-For example, the output above shows us that token 1, an if keyword, had 5 sniffs executed on it; the ControlSignature sniff, the MultiLineCondition sniff, the ScopeClosingBrace sniff, the ScopeIndent sniff and the InlineControlStructure sniff. Each was executed fairly quickly, but the slowest was the ControlSignature sniff, taking 0.0001 seconds to process that token.
+For example, the output above shows us that token 2, an if keyword, had 4 sniffs executed on it; the ControlSignature sniff, the MultiLineCondition sniff, the ScopeClosingBrace sniff, and the InlineControlStructure sniff. Each was executed fairly quickly, but the slowest was the `ControlSignature` sniff, taking 0.0002 seconds to process that token.
 
 The other interesting piece of information we get from the output above is that some tokens didn't have any sniffs executed on them. This is normal behaviour for PHP_CodeSniffer as most sniffs listen for specific or rarely used tokens and then execute on it and a number of tokens following it.
 
-For example, the ScopeIndentSniff executes on the if statement's token only, but actually checks the indentation of every line within the if statement. The sniff uses the scope map to find all tokens within the if statement.
+For example, the `MultiLineConditionSniff` executes on the if statement's token only, but actually checks the format and indentation of every line within the if statement condition. The sniff uses the token map to find all tokens within the if condition.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
