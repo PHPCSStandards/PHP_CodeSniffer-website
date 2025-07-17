@@ -49,9 +49,9 @@ The following sample file documents the `ruleset.xml` format and shows you the c
     such as show_warnings and report_format.
     
     The following tag is equivalent to the command line argument:
-    --runtime-set zend_ca_path /path/to/ZendCodeAnalyzer
+    --runtime-set php_version 80100
  -->
- <config name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
+ <config name="php_version" value="80100"/>
 
 <!--
     If no files or directories are specified on the command line
@@ -453,10 +453,10 @@ The following sample file shows a `ruleset.xml` file that makes use of selective
 <ruleset name="Selective Standard">
 
  <!--
-    Use an external tool only when checking coding standards
+    Use the php_version setting only when checking coding standards
     and not while fixing a file.
  -->
- <config phpcs-only="true" name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
+ <config phpcs-only="true" name="php_version" value="70400"/>
 
  <!--
     Exclude some files from being fixed.

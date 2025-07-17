@@ -229,23 +229,7 @@ $ phpcs --config-set ignore_non_auto_fixable_on_exit 1
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-## Generic Coding Standard Configuration Options
-
-### Setting the path to CSSLint
-
-The `Generic.Debug.CSSLint` sniff will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
-
-```bash
-$ phpcs --config-set csslint_path /path/to/csslint
-```
-
-### Setting the path to the Google Closure Linter
-
-The `Generic.Debug.ClosureLinter` sniff will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
-
-```bash
-$ phpcs --config-set gjslint_path /path/to/gjslint
-```
+## Setting tool paths
 
 ### Setting the path to PHP
 
@@ -255,7 +239,23 @@ The `Generic.PHP.Syntax` sniff will check the syntax of each PHP file using [the
 $ phpcs --config-set php_path /path/to/php
 ```
 
-### Setting the path to JSHint
+### Setting the path to CSSLint (PHP_CodeSniffer < 4.0.0)
+
+The `Generic.Debug.CSSLint` sniff will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
+
+```bash
+$ phpcs --config-set csslint_path /path/to/csslint
+```
+
+### Setting the path to the Google Closure Linter (PHP_CodeSniffer < 4.0.0)
+
+The `Generic.Debug.ClosureLinter` sniff will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
+
+```bash
+$ phpcs --config-set gjslint_path /path/to/gjslint
+```
+
+### Setting the path to JSHint (PHP_CodeSniffer < 4.0.0)
 
 The `Generic.Debug.JSHint` sniff will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
 
@@ -269,12 +269,7 @@ As JSHint is just JavaScript code, you may also need to install [Rhino](https://
 $ phpcs --config-set rhino_path /path/to/rhino
 ```
 
-<p align="right"><a href="#table-of-contents">back to top</a></p>
-
-
-## Squiz Coding Standard Configuration Options
-
-### Setting the path to JSLint
+### Setting the path to JSLint (PHP_CodeSniffer < 4.0.0)
 
 The `Squiz.Debug.JSLint` sniff will check each JavaScript file using [JSLint](http://www.jslint.com/), a JavaScript program that looks for problems in JavaScript programs. Use the `jslint_path` configuration option to tell the JSLint sniff where to find the tool.
 
@@ -288,7 +283,7 @@ As JSLint is just JavaScript code, you may also need to install [Rhino](https://
 $ phpcs --config-set rhino_path /path/to/rhino
 ```
 
-### Setting the path to JavaScript Lint
+### Setting the path to JavaScript Lint (PHP_CodeSniffer < 4.0.0)
 
 The `Squiz.Debug.JavascriptLint` sniff will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
 
@@ -296,12 +291,7 @@ The `Squiz.Debug.JavascriptLint` sniff will check each JavaScript file using [Ja
 $ phpcs --config-set jsl_path /path/to/jsl
 ```
 
-<p align="right"><a href="#table-of-contents">back to top</a></p>
-
-
-## Zend Coding Standard Configuration Options
-
-### Setting the path to the Zend Code Analyzer
+### Setting the path to the Zend Code Analyzer (PHP_CodeSniffer < 4.0.0)
 
 The `Zend.Debug.CodeAnalyzer` sniff will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
 
