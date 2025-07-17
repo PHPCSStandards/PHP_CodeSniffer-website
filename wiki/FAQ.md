@@ -23,7 +23,7 @@ Coding standards are a good thing. They will improve the code readability and ma
 
 ## Does PHP_CodeSniffer parse my code to ensure it will execute?
 
-No. PHP_CodeSniffer does not actually parse your code, and so cannot accurately tell if your code contains parse errors. PHP_CodeSniffer does know about some parse errors and will warn you if it finds code that it is unable to sniff correctly due to a suspected parse error. However, as there is no actual parsing taking place, PHP_CodeSniffer may return an incorrect number of errors when checking code that contains parse errors.
+No. PHP_CodeSniffer does not actually parse your code, and so cannot accurately tell if your code contains parse errors. PHP_CodeSniffer does know about some parse errors and will attempt to silently ignore those. However, as there is no actual parsing taking place, PHP_CodeSniffer may return an incorrect number of errors when checking code that contains parse errors.
 
 You can check for parse errors in a file using the PHP command line interface and the `-l` (lowercase L) option.
 
