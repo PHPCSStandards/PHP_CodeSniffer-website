@@ -55,8 +55,6 @@ Always run PHP_CodeSniffer until you get a passing result. Once you've made the 
 
 ## What does PHP_CodeSniffer use to tokenize my code?
 
-For PHP files, PHP_CodeSniffer uses [PHP's inbuilt tokenizer functions](http://www.php.net/tokenizer) to parse your code. It then modifies that output to include much more data about the file, such as matching function braces to function keywords.
-
-For all other file types, PHP_CodeSniffer includes a custom tokenizer that either makes use of PHP's inbuilt tokenizer or emulates it. In both cases, the token array must be checked and changed manually before all the standard PHP_CodeSniffer matching rules are applied, making tokenizing a bit slower for these file types.
+PHP_CodeSniffer uses [PHP's inbuilt tokenizer functions](http://www.php.net/tokenizer) to parse your code. It then modifies that output to include much more data about the file, such as matching function braces to function keywords.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>

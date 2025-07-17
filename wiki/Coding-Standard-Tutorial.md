@@ -143,19 +143,21 @@ final class DisallowHashCommentsSniff implements Sniff
 }
 ```
 
-By default, PHP_CodeSniffer assumes all sniffs are designed to check PHP code only. You can specify a list of tokenizers that your sniff supports, allowing it to be used with PHP, JavaScript or CSS files, or any combination of the three. You do this by setting the `$supportedTokenizers` property in your sniff. Adding the following code to your sniff will tell PHP_CodeSniffer that it can be used to check both PHP and JavaScript code:
-
-```php
-/**
- * A list of tokenizers this sniff supports.
- *
- * @var array<string>
- */
-public $supportedTokenizers = [
-    'PHP',
-    'JS',
-];
-```
+> [!NOTE]
+> Since PHP_CodeSniffer 4.0.0, scanning JavaScript or CSS files is no longer supported.
+> Prior to PHP_CodeSniffer 4.0.0, PHP_CodeSniffer assumed, by default, that all sniffs were designed to check PHP code only, but you could specify a list of tokenizers that your sniff supported, allowing it to be used with PHP, JavaScript or CSS files, or any combination of these. You indicated this by setting the `$supportedTokenizers` property in your sniff. So if you see the following code in a sniff for PHP_CodeSniffer < 4.0, this tells PHP_CodeSniffer that it can be used to check both PHP and JavaScript code:
+>
+> ```php
+> /**
+>  * A list of tokenizers this sniff supports.
+>  *
+>  * @var array<string>
+>  */
+> public $supportedTokenizers = [
+>     'PHP',
+>     'JS',
+> ];
+> ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 

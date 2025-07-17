@@ -7,7 +7,7 @@
 
 ## Specifying Valid File Extensions
 
-By default, PHP_CodeSniffer will check any file it finds with a `.inc`, `.php`, `.js` or `.css` extension, although not all standards will actually check all these file types. Sometimes, this means that PHP_CodeSniffer is not checking enough of your files. Sometimes, the opposite is true. PHP_CodeSniffer allows you to specify a list of valid file extensions using the `--extensions` command line argument. Extensions are separated by commas.
+By default, PHP_CodeSniffer will check any file it finds with an `.inc` or `.php` extension. Sometimes, this means that PHP_CodeSniffer is not checking enough of your files. Sometimes, the opposite is true. PHP_CodeSniffer allows you to specify a list of valid file extensions using the `--extensions` command line argument. Extensions are separated by commas.
 
 To only check `.php` files:
 ```bash
@@ -18,6 +18,10 @@ To check `.php`, `.inc` and `.lib` files:
 ```bash
 $ phpcs --extensions=php,inc,lib /path/to/code
 ```
+
+> [!NOTE]
+> Prior to PHP_CodeSniffer 4.0.0, `.css` and `.js` files were also scanned by default, though only a limited number of sniffs included support for scanning JS and CSS files.  
+> Support for CSS and JavaScript file scanning was removed in PHP_CodeSniffer 4.0.0.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
