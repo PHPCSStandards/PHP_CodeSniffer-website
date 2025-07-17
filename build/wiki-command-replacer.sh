@@ -42,8 +42,9 @@ execute_command() {
   validate_tokens
   add_default_options
 
-  echo >&2 "  INFO: running: ${EXECUTABLE_COMMAND[@]}"
-  ${EXECUTABLE_COMMAND[@]}
+  echo >&2 "  INFO: running: " "${EXECUTABLE_COMMAND[@]}"
+  read -ra executable <<<"${EXECUTABLE_COMMAND[@]}"
+  "${executable[@]}"
 }
 
 if [[ -z "${CI:-}" ]]; then
