@@ -46,7 +46,7 @@ $xmlPackage->send();
 
 > [!NOTE]
 > Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`.
-> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> The `@codingStandards*` syntax is deprecated since PHP_CodeSniffer 3.2.0 and has been removed in PHP_CodeSniffer version 4.0.
 
 > [!TIP]
 > The `phpcs:ignoreFile` comment syntax does not allow for a specific set of sniffs to be ignored for a file. Use the `phpcs:disable` comment syntax if you want to disable a specific set of sniffs for the entire file.
@@ -81,7 +81,7 @@ $xmlPackage->send();
 
 > [!NOTE]
 > Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`.
-> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> The `@codingStandards*` syntax is deprecated since PHP_CodeSniffer 3.2.0 and has been removed in PHP_CodeSniffer version 4.0.
 
 If you don't want to disable all coding standard errors, you can selectively disable and re-enable specific error message codes, sniffs, categories of sniffs, or entire coding standards. The following example disables the specific `Generic.Commenting.Todo.Found` message and then re-enables all checks at the end.
 
@@ -128,7 +128,7 @@ bar($foo, false);
 
 > [!NOTE]
 > Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`.
-> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> The `@codingStandards*` syntax is deprecated since PHP_CodeSniffer 3.2.0 and has been removed in PHP_CodeSniffer version 4.0.
 
 Again, you can selectively ignore one or more specific error message codes, sniffs, categories of sniffs, or entire standards.
 
