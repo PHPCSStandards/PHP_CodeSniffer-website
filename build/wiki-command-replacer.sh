@@ -16,17 +16,17 @@ tokenize_command() {
 check_allowed_commands() {
   local cmd="${TOKENS[0]}"
   for allowed in "${ALLOWED_COMMANDS[@]}"; do
-    [[ "$cmd" == "$allowed" ]] && return 0
+    [[ "${cmd}" == "${allowed}" ]] && return 0
   done
 
-  echo >&2 "  ERROR: refusing to run arbitrary command: $cmd"
+  echo >&2 "  ERROR: refusing to run arbitrary command: ${cmd}"
   exit 1
 }
 
 validate_tokens() {
   for token in "${TOKENS[@]}"; do
-    if [[ "$token" =~ [\;\|\&\$\<\>\`\\] ]]; then
-      echo >&2 "  ERROR: refusing unsafe token: $token"
+    if [[ "${token}" =~ [\;\|\&\$\<\>\`\\] ]]; then
+      echo >&2 "  ERROR: refusing unsafe token: ${token}"
       exit 1
     fi
   done
@@ -62,7 +62,8 @@ grep -lrF "${MARKER_START}" _wiki | while read -r file_to_process; do
       USER_COMMAND="${line##"${MARKER_START}"}"
       USER_COMMAND="${USER_COMMAND%%"${MARKER_END}"}"
 
-      execute_command "$USER_COMMAND" </dev/null || true
+      # shellcheck disable=SC2310
+      execute_command "${USER_COMMAND}" </dev/null || true
     else
       echo "${line}"
     fi
