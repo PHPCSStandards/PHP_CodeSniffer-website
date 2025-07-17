@@ -1,9 +1,3 @@
-> [!CAUTION]
-> PHP_CodeSniffer 4.0.0 is currently in the pre-release phase. The information in this upgrade guide is subject to change until PHP_CodeSniffer 4.0.0 has been released.
->
-> If you find errors in this upgrade guide or would like to contribute improvements based on tests you've run with a PHP_CodeSniffer 4.0 pre-release, please [open an issue](https://github.com/PHPCSStandards/PHP_CodeSniffer/issues).
-
-
 PHP_CodeSniffer version 4.0.0 contains a number of core changes and breaks backwards compatibility in select situations. The aim of this guide is to help **ruleset maintainers and end-users** to upgrade from PHP_CodeSniffer version 3.x to version 4.x.
 
 There is a separate [Upgrade Guide for Sniff Developers and Integrators](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Version-4.0-Developer-Upgrade-Guide) available.
@@ -286,9 +280,9 @@ CI scripts or git pre-commit hooks may be checking explicitly for specific exit 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-### [Upcoming] Branch rename in the PHP_CodeSniffer repository
+### Branch rename in the PHP_CodeSniffer repo
 
-Just before the final 4.0.0 release, the PHP_CodeSniffer `master` branch will be renamed to `3.x` and the default branch will change to `4.x`.
+The PHP_CodeSniffer `master` branch has been renamed to `3.x` and the default branch is now the `4.x` branch.
 
 #### Upgrading
 
@@ -314,7 +308,7 @@ If you reference a development version of PHP_CodeSniffer in your `composer.json
 What to update these to, depends on your use-case.
 
 * If you want to use the latest development version of PHP_CodeSniffer, use the `4.x` branch. For Composer, references to the branch will need to look like this: `4.x-dev`.
-* If you want the last development version of the `3.x` branch - previously `master`, use `3.x`.  For Composer, references to the branch will need to look like this: `3.x-dev`.
+* If you want the last development version of the `3.x` branch - previously `master` -, use `3.x`.  For Composer, references to the branch will need to look like this: `3.x-dev`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
