@@ -328,7 +328,7 @@ $ phpcs --config-show
 Using config file: path/to/PHP_CodeSniffer/CodeSniffer.conf
 
 colors:           1
-default_standard: PEAR
+default_standard: PSR12
 report_width:     150
 ```
 

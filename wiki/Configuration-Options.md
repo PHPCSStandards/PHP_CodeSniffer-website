@@ -7,7 +7,7 @@
 
 ## Setting the default coding standard
 
-By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is supplied on the command line. You can change the default standard by setting the `default_standard` configuration option.
+By default, PHP_CodeSniffer will use the PSR12 coding standard if no standard is supplied on the command line. You can change the default standard by setting the `default_standard` configuration option.
 
 ```bash
 $ phpcs --config-set default_standard Squiz
@@ -15,6 +15,9 @@ $ phpcs --config-set default_standard Squiz
 
 > [!NOTE]
 > This configuration option cannot be set using the `--runtime-set` command line argument. To set the coding standard for a single run only, use the `--standard` command line argument.
+
+> [!NOTE]
+> Prior to PHP_CodeSniffer 4.0.0, PHP_CodeSniffer would default to the PEAR coding standard.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
