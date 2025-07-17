@@ -7,7 +7,7 @@ cd "$(dirname "$0")/.."
 MARKER_START='{{COMMAND-OUTPUT "'
 MARKER_END='"}}'
 ALLOWED_COMMANDS=("phpcs" "phpcbf")
-DEFAULT_OPTIONS=("--parallel=1" "--no-cache" "--no-colors" "--report-width=100" "--report=diff")
+DEFAULT_OPTIONS=("--parallel=1" "--no-cache" "--no-colors" "--report-width=100")
 
 tokenize_command() {
   read -ra TOKENS <<< "$1"
