@@ -130,8 +130,10 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: mshick/add-pr-comment@v2
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.COMMENT_ON_PRS_TOKEN }}
           message: |
+            **_=== This is an auto-generated comment ===_**
+
             Thank you for your PR.
             A dry-run has been executed on your PR, executing all markdown pre-processing for the wiki files.
 
