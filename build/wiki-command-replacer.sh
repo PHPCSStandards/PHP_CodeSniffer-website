@@ -6,6 +6,45 @@ cd "$(dirname "$0")/.."
 
 MARKER_START='{{COMMAND-OUTPUT "'
 MARKER_END='"}}'
+ALLOWED_COMMANDS=("phpcs" "phpcbf")
+DEFAULT_OPTIONS=("--parallel=1" "--no-cache" "--no-colors" "--report-width=100")
+
+tokenize_command() {
+  read -ra TOKENS <<< "$1"
+}
+
+check_allowed_commands() {
+  local cmd="${TOKENS[0]}"
+  for allowed in "${ALLOWED_COMMANDS[@]}"; do
+    [[ "${cmd}" == "${allowed}" ]] && return 0
+  done
+
+  echo >&2 "  ERROR: refusing to run arbitrary command: ${cmd}"
+  exit 1
+}
+
+validate_tokens() {
+  for token in "${TOKENS[@]}"; do
+    if [[ "${token}" =~ [\;\|\&\$\<\>\`\\] ]]; then
+      echo >&2 "  ERROR: refusing unsafe token: ${token}"
+      exit 1
+    fi
+  done
+}
+
+add_default_options() {
+  EXECUTABLE_COMMAND=("${TOKENS[0]}" "${DEFAULT_OPTIONS[@]}" "${TOKENS[@]:1}")
+}
+
+execute_command() {
+  tokenize_command "$1"
+  check_allowed_commands
+  validate_tokens
+  add_default_options
+
+  echo >&2 "  INFO: running: " "${EXECUTABLE_COMMAND[@]}"
+  "${EXECUTABLE_COMMAND[@]}"
+}
 
 if [[ -z "${CI:-}" ]]; then
   # The `_wiki` directory is created in a previous GitHub Action step.
@@ -19,20 +58,11 @@ grep -lrF "${MARKER_START}" _wiki | while read -r file_to_process; do
 
   while IFS=$'\n' read -r line; do
     if [[ ${line} = ${MARKER_START}*${MARKER_END} ]]; then
-      COMMAND="${line##"${MARKER_START}"}"
-      COMMAND="${COMMAND%%"${MARKER_END}"}"
+      USER_COMMAND="${line##"${MARKER_START}"}"
+      USER_COMMAND="${USER_COMMAND%%"${MARKER_END}"}"
 
-      if [[ "${COMMAND}" != "phpcs "* ]] && [[ "${COMMAND}" != "phpcbf "* ]]; then
-        echo >&2 "  ERROR: refusing to run arbitrary command: ${COMMAND}"
-        exit 1
-      fi
-
-      #FIXME refuse to run commands with a semicolon / pipe / ampersand / sub-shell
-
-      echo >&2 "  INFO: running: ${COMMAND}"
-      (
-        eval "${COMMAND}" </dev/null || true
-      )
+      # shellcheck disable=SC2310
+      execute_command "${USER_COMMAND}" </dev/null || true
     else
       echo "${line}"
     fi
