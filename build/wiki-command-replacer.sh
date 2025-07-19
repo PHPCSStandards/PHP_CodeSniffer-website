@@ -43,8 +43,7 @@ execute_command() {
   add_default_options
 
   echo >&2 "  INFO: running: " "${EXECUTABLE_COMMAND[@]}"
-  read -ra executable <<<"${EXECUTABLE_COMMAND[@]}"
-  "${executable[@]}"
+  "${EXECUTABLE_COMMAND[@]}"
 }
 
 if [[ -z "${CI:-}" ]]; then
